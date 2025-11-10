@@ -1,0 +1,40 @@
+project:
+  type: website
+
+website:
+  title: "support-this"
+  reader-mode: true
+  repo-url: https://github.com/coatless-quarto/support-this/
+  repo-actions: [edit, issue]
+  sidebar:
+    logo: "support-this-animated-logo.svg"
+    logo-alt: "A hexagon logo for the support-this extension."
+    style: "floating"
+    search: true
+    tools:
+      - icon: github
+        href: https://github.com/coatless-quarto/support-this/
+    contents: 
+      - text: "Home"
+        file: index.qmd
+      - section: "Demos"
+        contents:
+        - text: "Multiformat Support"
+          href: qsupport-this-demo.qmd
+        - text: "Multiple Links & GitHub Users"
+          href: qsupport-this-multi-links-and-gh-users.qmd
+        - text: "FUNDING.yml Integration"
+          href: qsupport-this-funding-yml.qmd
+      - section: "Support"
+        contents:
+        - text: "FAQ"
+          href: qsupport-this-faq.qmd
+        - text: "Submit an issue"
+          href: https://github.com/coatless-quarto/support-this/issues/new/choose
+      - section: "Extra"
+        contents:
+        - qsupport-this-release-notes.qmd
+
+format: 
+  html:
+    toc: true

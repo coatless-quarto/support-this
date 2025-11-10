@@ -1,0 +1,40 @@
+---
+title: "Funding YAML Example"
+format: html
+extensions:
+  support-this:
+    heading: "Support My Work (Based on FUNDING.yml)"
+    use_funding_yml: true
+filters: [support-this]
+---
+
+## Using FUNDING.yml
+
+This document demonstrates how to use a `FUNDING.yml` file to configure the `support-this` extension in Quarto. 
+The extension will read the funding information from the `FUNDING.yml` file located in the same directory
+as this document. We have specified the `use_funding_yml: true` option in the extension configuration to
+enable this feature.
+
+```yaml
+title: "Funding YAML Example"
+format: html
+extensions:
+    support-this:
+        heading: "Support My Work (Based on FUNDING.yml)"
+        use_funding_yml: true
+```
+
+### FUNDING.yml Structure
+
+The `FUNDING.yml` file can include multiple platforms and custom links, allowing you to easily manage your
+funding options in one place. For more details on the format of the `FUNDING.yml` file, refer to the 
+[GitHub documentation on funding files](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository).
+
+Here is the content of the `FUNDING.yml` file used in this example:
+
+```yaml
+github: [coatless, octocat]
+patreon: coatless
+custom: ["https://www.paypal.me/coatless", thecoatlessprofessor.com]
+```
+

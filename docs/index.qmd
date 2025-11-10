@@ -1,4 +1,11 @@
-# support-this
+---
+title: "Home"
+format: 
+  html:
+    toc: false
+filters: 
+  - details
+---
 
 A Quarto extension to add crowdfunding and sponsorship links to your Quarto documents to support your content creation.
 

@@ -1,0 +1,39 @@
+---
+title: "Support This Demo"
+format: 
+  html: default
+  typst: default
+  revealjs: default
+extensions:
+  support-this:
+    heading: "Support My Work"
+    message: "If you find this helpful, consider supporting me!"
+    github: coatless
+    patreon: coatless
+    buy_me_a_coffee: coatless
+filters: [support-this]
+---
+
+This document demonstrates the `support-this` Quarto extension with multiple funding platforms configured directly in the document's YAML front matter.
+
+## Configuration
+
+We have specified the following configuration:
+
+```yaml
+extensions:
+  support-this:
+    heading: "Support My Work"
+    message: "If you find this helpful, consider supporting me!"
+    github: coatless
+    patreon: coatless
+    buy_me_a_coffee: coatless
+filters: [support-this]
+```
+
+Make sure to replace `coatless` with your actual usernames on the respective platforms.
+
+## Supported Formats
+
+This extension supports multiple output formats including HTML, PDF, and Typst. Please see other formats like PDF and Typst to understand how the extension behaves across different output types.
+

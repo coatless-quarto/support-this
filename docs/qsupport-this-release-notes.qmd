@@ -1,0 +1,17 @@
+---
+title: "Release Notes"
+date: "11-08-2025"
+date-modified: last-modified
+engine: markdown
+format: 
+  html:
+    toc: true
+---
+
+# 0.0.0-dev.1: ???? (??-??-????)
+
+## Features
+
+- `support-this` provides support buttons for various funding platforms directly into your documents. 
+  - You can configure multiple platforms and custom links through the document's YAML front matter or a `FUNDING.yml` file.
+

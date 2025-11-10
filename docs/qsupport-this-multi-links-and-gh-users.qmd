@@ -1,0 +1,40 @@
+---
+title: "Multiple Custom Links and GitHub Usernames Example"
+format: html
+extensions:
+  support-this:
+    heading: "Support My Work"
+    github: [coatless, yourusername]
+    custom: 
+      - "https://paypal.me/yourusername"
+      - "https://yourwebsite.com/donate"
+filters: [support-this]
+---
+
+
+This document demonstrates how to configure the `support-this` Quarto extension
+with multiple custom links and multiple GitHub usernames directly in the
+document's YAML front matter.
+
+## Configuration
+
+The configuration specified in the YAML front matter is as follows:
+
+```yaml
+extensions:
+  support-this:
+    heading: "Support My Work"
+    github: [coatless, yourusername]
+    custom:
+      - "https://paypal.me/yourusername"
+      - "https://yourwebsite.com/donate"
+``` 
+
+You may use either a single string or a list of strings for the `github` and `custom`
+fields to include multiple usernames or links.
+
+When you render this document, you should see support buttons for both GitHub Sponsors
+accounts (`coatless` and `yourusername`), as well as buttons for the custom links
+provided (PayPal and your personal donation page). Fields with multiple entries will
+display separate buttons for each entry.
+
