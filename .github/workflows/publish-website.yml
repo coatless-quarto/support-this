@@ -26,10 +26,7 @@ jobs:
           uses: quarto-dev/quarto-actions/setup@v2
           with:
             version: "pre-release"
-
-        - name: "Install tinytex"
-          run: |
-            quarto install tinytex
+            tinytex: true
 
         # Render the Quarto file
         - name: "Render working directory"
