@@ -2,7 +2,7 @@
 title: "Support This Demo"
 format: 
   html: default
-  typst: default
+  pdf: default
   revealjs: default
 extensions:
   support-this:
