@@ -3,8 +3,15 @@ title: "Home"
 format: 
   html:
     toc: false
-filters: 
-  - details
+extensions:
+  support-this:
+    heading: "Support This Project"  # Optional custom title
+    message: "Your support helps keep this project alive!"  # Optional message
+    github: coatless
+    patreon: coatless
+    use_funding_yml: false
+    position: top
+filters: [support-this]
 ---
 
 A Quarto extension to add crowdfunding and sponsorship links to your Quarto documents to support your content creation.
