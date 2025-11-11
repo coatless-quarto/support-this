@@ -1,4 +1,4 @@
-# support-this
+# support-this <img src="docs/support-this-animated-logo.svg" align ="right" alt="" width ="150"/>
 
 A Quarto extension to add crowdfunding and sponsorship links to your Quarto documents to support your content creation.
 
@@ -37,12 +37,13 @@ extensions:
   support-this:
     heading: "Support This Project"  # Optional custom title
     message: "Your support helps keep this project alive!"  # Optional message
-    github: username
-    patreon: username
-    ko_fi: username
-    buy_me_a_coffee: username
-    custom: "https://paypal.me/username"
     use_funding_yml: false  # Set to true to use GitHub FUNDING.yml if available
+    platforms:
+      github: username
+      patreon: username
+      ko_fi: username
+      buy_me_a_coffee: username
+      custom: "https://paypal.me/username"
 filters: [support-this]
 ---
 ```
@@ -73,10 +74,11 @@ You can specify multiple accounts for any platform:
 ```yaml
 extensions:
   support-this:
-    github: [user1, user2, user3]
-    custom: 
-      - "https://paypal.me/username"
-      - "https://venmo.com/username"
+    platforms:
+     github: [user1, user2, user3]
+      custom: 
+        - "https://paypal.me/username"
+        - "https://venmo.com/username"
 ```
 
 Each account will be displayed as a separate link.
