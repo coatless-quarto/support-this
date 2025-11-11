@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 2521 2911">
+  <!-- Generator: Adobe Illustrator 30.0.0, SVG Export Plug-In . SVG Version: 2.1.1 Build 123)  -->
+  <defs>
+    <style>
+      .st0, .st1, .st2, .st3 {
+        fill: none;
+      }
+
+      .st4 {
+        fill: url(#linear-gradient2);
+      }
+
+      .st5 {
+        fill: url(#linear-gradient1);
+      }
+
+      .st6 {
+        fill: url(#linear-gradient3);
+      }
+
+      .st7 {
+        filter: url(#dropShadow);
+      }
+
+      .st8 {
+        fill: url(#radial-gradient);
+      }
+
+      .st9 {
+        fill: url(#linear-gradient);
+      }
+
+      .st10, .st11, .st12, .st1, .st2, .st13, .st3, .st14, .st15, .st16 {
+        isolation: isolate;
+      }
+
+      .st11 {
+        font-family: Arial-Black, 'Arial Black';
+        font-size: 220px;
+        font-weight: 800;
+        letter-spacing: .04em;
+      }
+
+      .st11, .st15, .st16 {
+        fill: #fff;
+      }
+
+      .st12 {
+        fill: #f5d9a8;
+        opacity: .5;
+      }
+
+      .st17 {
+        filter: url(#noise);
+      }
+
+      .st18 {
+        fill: #ddb078;
+      }
+
+      .st19 {
+        filter: url(#textShadow);
+      }
+
+      .st1 {
+        stroke: url(#linear-gradient7);
+      }
+
+      .st1, .st2 {
+        opacity: .75;
+        stroke-width: 28px;
+      }
+
+      .st1, .st2, .st3 {
+        stroke-linecap: round;
+      }
+
+      .st2 {
+        stroke: url(#linear-gradient5);
+      }
+
+      .st13 {
+        fill: #2c1810;
+      }
+
+      .st13, .st15 {
+        opacity: .3;
+      }
+
+      .st3 {
+        opacity: .85;
+        stroke: url(#linear-gradient6);
+        stroke-width: 32px;
+      }
+
+      .st14 {
+        fill: url(#linear-gradient4);
+        opacity: .95;
+      }
+
+      .st16 {
+        opacity: .25;
+      }
+
+      /* Animation Styles */
+      @keyframes heartbeat {
+        0%, 100% {
+          transform: scale(1);
+        }
+        25% {
+          transform: scale(1.05);
+        }
+        50% {
+          transform: scale(1);
+        }
+        75% {
+          transform: scale(1.03);
+        }
+      }
+
+      @keyframes steam1 {
+        0% {
+          opacity: 0.75;
+          transform: translateY(0) translateX(0);
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(-60px) translateX(-10px);
+        }
+      }
+
+      @keyframes steam2 {
+        0% {
+          opacity: 0.85;
+          transform: translateY(0) translateX(0);
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(-60px) translateX(5px);
+        }
+      }
+
+      @keyframes steam3 {
+        0% {
+          opacity: 0.75;
+          transform: translateY(0) translateX(0);
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(-60px) translateX(10px);
+        }
+      }
+
+      @keyframes liquidShimmer {
+        0%, 100% {
+          opacity: 0.5;
+        }
+        50% {
+          opacity: 0.65;
+        }
+      }
+
+      @keyframes coffeeShine {
+        0%, 100% {
+          opacity: 0.3;
+        }
+        50% {
+          opacity: 0.45;
+        }
+      }
+
+      .heart-group {
+        animation: heartbeat 2s ease-in-out infinite;
+        transform-origin: 1216px 1450px;
+      }
+
+      .steam-1 {
+        animation: steam1 3s ease-in-out infinite;
+        transform-origin: 1000px 790px;
+      }
+
+      .steam-2 {
+        animation: steam2 3s ease-in-out 0.5s infinite;
+        transform-origin: 1260px 760px;
+      }
+
+      .steam-3 {
+        animation: steam3 3s ease-in-out 1s infinite;
+        transform-origin: 1520px 790px;
+      }
+
+      .liquid-shimmer {
+        animation: liquidShimmer 4s ease-in-out infinite;
+      }
+
+      .coffee-shine {
+        animation: coffeeShine 5s ease-in-out infinite;
+      }
+    </style>
+    <filter id="noise">
+      <feTurbulence baseFrequency="0.9" numOctaves="4" result="noise" type="fractalNoise"/>
+      <feColorMatrix in="noise" type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA tableValues="0 0 0.03" type="discrete"/>
+      </feComponentTransfer>
+      <feBlend in="SourceGraphic" in2="noise" mode="multiply"/>
+    </filter>
+    <linearGradient id="linear-gradient" x1="963.09" y1="1876.27" x2="963.09" y2="1875.27" gradientTransform="translate(-2276646.89 5124557.97) scale(2365.2 -2731.2)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5a3d28"/>
+      <stop offset=".5" stop-color="#3d2617"/>
+      <stop offset="1" stop-color="#2a1810"/>
+    </linearGradient>
+    <filter id="dropShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="15"/>
+      <feOffset dx="0" dy="10" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA slope="0.35" type="linear"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="linear-gradient1" x1="962.24" y1="1882.06" x2="963.24" y2="1881.06" gradientTransform="translate(-1173620.08 430962.81) rotate(-3) scale(1242 -195.5)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f5d9a8"/>
+      <stop offset=".5" stop-color="#e8c48e"/>
+      <stop offset="1" stop-color="#d4a574"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient2" x1="962.15" y1="1877.28" x2="963.15" y2="1876.28" gradientTransform="translate(-905602.34 1734854.94) rotate(-3) scale(1035 -897)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f5d9a8"/>
+      <stop offset=".5" stop-color="#e8c48e"/>
+      <stop offset="1" stop-color="#d4a574"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient3" x1="962.21" y1="1886.41" x2="963.21" y2="1885.41" gradientTransform="translate(-1128030.8 217883.36) scale(1173 -115)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f5d9a8"/>
+      <stop offset=".5" stop-color="#e8c48e"/>
+      <stop offset="1" stop-color="#d4a574"/>
+    </linearGradient>
+    <radialGradient id="radial-gradient" cx="962.56" cy="1890.26" fx="962.56" fy="1890.26" r=".5" gradientTransform="translate(-1088969.23 168806.02) scale(1134.97 -88.74) skewX(-.06)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3d2a1f"/>
+      <stop offset="1" stop-color="#1a0f0a"/>
+    </radialGradient>
+    <linearGradient id="linear-gradient4" x1="961.59" y1="1878.8" x2="961.59" y2="1877.8" gradientTransform="translate(-434214.38 884117.36) rotate(-3) scale(500.25 -457.12)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff7b7b"/>
+      <stop offset="1" stop-color="#ff5b5b"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient5" x1="942.1" y1="1880.33" x2="942.1" y2="1881.33" gradientTransform="translate(-41372 358143.07) scale(45 -190)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f0f0f0" stop-opacity=".9"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".6"/>
+      <stop offset="1" stop-color="#e8e8e8" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient6" x1="939.43" y1="1879.29" x2="939.43" y2="1880.29" gradientTransform="translate(-36297 442513.11) scale(40 -235)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f0f0f0" stop-opacity=".9"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".6"/>
+      <stop offset="1" stop-color="#e8e8e8" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient7" x1="942.1" y1="1880.33" x2="942.1" y2="1881.33" gradientTransform="translate(-40897 358143.07) scale(45 -190)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f0f0f0" stop-opacity=".9"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".6"/>
+      <stop offset="1" stop-color="#e8e8e8" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="textShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
+      <feOffset dx="0" dy="3" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA slope="0.6" type="linear"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <path class="st9" d="M2443.1,776.1l-178.1-102.9c-252.8-183.2-693.3-408.3-1004.5-579.9-353.4,202.8-724.6,418.3-1007.6,581.6l-175,101.2v1365.6l1182.6,682.8,1182.6-682.8V776.1Z"/>
+  <path class="st0" d="M2443.1,776.1l-178.1-102.9c-252.8-183.2-693.3-408.3-1004.5-579.9-353.4,202.8-724.6,418.3-1007.6,581.6l-175,101.2v1365.6l1182.6,682.8,1182.6-682.8V776.1Z"/>
+  <g class="st7">
+    <path class="st5" d="M608.71,1042.3c-2.11-40.19,25.1-70.41,65.29-72.52l1102.49-57.78c40.19-2.11,70.41,25.1,72.52,65.29l6.62,126.33-1240.3,65-6.62-126.33Z"/>
+    <path class="st4" d="M684.24,1165.02l1033.58-54.17-47.01,750.99c-4.67,86.61-78.31,153.81-164.44,158.32l-516.79,27.08c-86.13,4.51-166.39-54.62-180.09-140.27l-125.25-741.96Z"/>
+    <ellipse class="st18" cx="1228.86" cy="1009.8" rx="586.5" ry="57.5" transform="translate(-51.16 65.7) rotate(-3)"/>
+    <ellipse class="st6" cx="1228.56" cy="1004.06" rx="586.5" ry="57.5" transform="translate(-50.86 65.67) rotate(-3)"/>
+    <ellipse class="st12 liquid-shimmer" cx="1228.26" cy="998.32" rx="586.5" ry="51.75" transform="translate(-50.56 65.65) rotate(-3)"/>
+    <ellipse cx="1221.43" cy="1005.57" rx="567.49" ry="38.82" transform="translate(-50.7 64.95) rotate(-2.98)"/>
+    <ellipse class="st8 coffee-shine" cx="1221.06" cy="1000.03" rx="567.49" ry="44.37" transform="translate(-50.39 64.9) rotate(-2.98)"/>
+    <ellipse class="st13" cx="1220.7" cy="994.5" rx="567.49" ry="42.15" transform="translate(-50.11 64.89) rotate(-2.98)"/>
+    <g class="heart-group">
+      <path class="st14" d="M1216.82,1313.61c-60.43-54.41-152.3-49.6-206.72,10.83s-49.6,152.3,10.83,206.72l217.55,195.88,195.88-217.55c54.41-60.43,49.6-152.3-10.83-206.72s-152.3-49.6-206.72,10.83Z"/>
+      <path class="st16" d="M1205.64,1319.95c-58.01-52.24-146.44-47.6-198.68,10.41s-47.6,146.44,10.41,198.68l209.09,188.27,188.27-209.09c52.24-58.01,47.6-146.44-10.41-198.68s-146.44-47.6-198.68,10.41Z"/>
+      <ellipse class="st15" cx="1172.69" cy="1350.47" rx="28.75" ry="40.25" transform="translate(-496.74 708.62) rotate(-28)"/>
+    </g>
+  </g>
+  <g>
+    <path class="st2 steam-1" d="M1000,880c10-30,15-60,15-90,0-35,10-70,30-100"/>
+    <path class="st3 steam-2" d="M1260,880c0-40,5-80,5-120s15-80,35-115"/>
+    <path class="st1 steam-3" d="M1520,880c-10-30-15-60-15-90,0-35-10-70-30-100"/>
+  </g>
+  <g class="st19">
+    <g class="st10">
+      <text class="st11" transform="translate(654.09 2359.84)"><tspan x="0" y="0">SUPPORT</tspan></text>
+    </g>
+    <g class="st10">
+      <text class="st11" transform="translate(958.38 2599.84)"><tspan x="0" y="0">THIS</tspan></text>
+    </g>
+  </g>
+</svg>
