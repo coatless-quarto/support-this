@@ -1,0 +1,39 @@
+---
+title: "RevealJS Support-This"
+format: html
+---
+
+This document demonstrates the `support-this` Quarto extension within a RevealJS presentation.
+
+## Presentation
+
+Open presentation in a new tab: [qsupport-this-revealjs-slides.qmd](qsupport-this-revealjs-slides.qmd)
+
+```{=html}
+<iframe src="qsupport-this-revealjs-slides.html" width="100%" height="600px" style="border:none;"></iframe>
+```
+
+## Configuration
+
+```markdown
+---
+title: "RevealJS Support-This"
+format: revealjs
+extensions:
+  support-this:
+    display: "icon-username"
+    heading: "Support This Project"
+    description: "Consider supporting our work!"
+    position: bottom
+    debug: true
+    platforms:
+      github: coatless
+      patreon: coatless
+      ko_fi: coatless
+filters: [support-this]
+---
+
+## Slide
+
+This is a RevealJS presentation testing the support-this extension.
+```

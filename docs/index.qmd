@@ -6,11 +6,12 @@ format:
 extensions:
   support-this:
     heading: "Support This Project"  # Optional custom title
-    message: "Your support helps keep this project alive!"  # Optional message
-    github: coatless
-    patreon: coatless
+    description: "Your support helps keep this project alive!"  # Optional message
     use_funding_yml: false
     position: top
+    platforms:
+      github: coatless
+      patreon: coatless
 filters: [support-this]
 ---
 
@@ -50,13 +51,14 @@ format:
 extensions:
   support-this:
     heading: "Support This Project"  # Optional custom title
-    message: "Your support helps keep this project alive!"  # Optional message
-    github: username
-    patreon: username
-    ko_fi: username
-    buy_me_a_coffee: username
-    custom: "https://paypal.me/username"
+    description: "Your support helps keep this project alive!"  # Optional message
     use_funding_yml: false  # Set to true to use GitHub FUNDING.yml if available
+    platforms:
+      github: username
+      patreon: username
+      ko_fi: username
+      buy_me_a_coffee: username
+      custom: "https://paypal.me/username"
 filters: [support-this]
 ---
 ```
@@ -65,7 +67,7 @@ where `username` should be replaced with your actual usernames on the respective
 
 ## Supported Platforms
 
-The following platforms are supported. Use the corresponding key followed by your username or URL:
+The following platforms are supported under the `platforms` key. Use the corresponding key followed by your username or URL:
 
 - GitHub Sponsors: `github: username`
 - Patreon: `patreon: username`
@@ -87,10 +89,11 @@ You can specify multiple accounts for any platform:
 ```yaml
 extensions:
   support-this:
-    github: [user1, user2, user3]
-    custom: 
-      - "https://paypal.me/username"
-      - "https://venmo.com/username"
+    platforms:
+      github: [user1, user2, user3]
+      custom: 
+        - "https://paypal.me/username"
+        - "https://venmo.com/username"
 ```
 
 Each account will be displayed as a separate link.
@@ -100,7 +103,7 @@ Each account will be displayed as a separate link.
 The `support-this` extension supports the following configuration options:
 
 - `heading`: Custom title for the support section (default: "Support This Work")
-- `message`: Custom message to display above the links
+- `description`: Custom message to display above the links
 - `truncated`: If true, shows only icons without text labels (default: false)
 - `use_funding_yml`: If true, attempts to read GitHub's FUNDING.yml for funding links (default: false)
 

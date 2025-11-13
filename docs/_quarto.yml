@@ -25,6 +25,8 @@ website:
           href: qsupport-this-multi-links-and-gh-users.qmd
         - text: "FUNDING.yml Integration"
           href: qsupport-this-funding-yml.qmd
+        - text: "RevealJS Integration"
+          href: qsupport-this-revealjs.qmd
       - section: "Support"
         contents:
         - text: "FAQ"

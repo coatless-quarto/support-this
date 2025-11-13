@@ -5,11 +5,13 @@ format:
   pdf: default
 extensions:
   support-this:
+    display: badge
     heading: "Support My Work"
     message: "If you find this helpful, consider supporting me!"
-    github: coatless
-    patreon: coatless
-    buy_me_a_coffee: coatless
+    platforms:
+      github: coatless
+      patreon: coatless
+      buy_me_a_coffee: coatless
 filters: [support-this]
 ---
 

@@ -1,0 +1,46 @@
+---
+title: "RevealJS Support-This"
+format: revealjs
+extensions:
+  support-this:
+    display: "icon-username"
+    heading: "Support This Project"
+    description: "Consider supporting our work!"
+    position: bottom
+    debug: true
+    platforms:
+      github: coatless
+      patreon: coatless
+      ko_fi: coatless
+filters: [support-this]
+---
+
+## Introduction
+
+This is a RevealJS presentation testing the support-this extension.
+
+## Support-This Integration
+
+When rendered as a RevealJS presentation, the extension automatically:
+
+1. Detects RevealJS format
+2. Creates a non-titled slide (e.g. empty `##`)
+3. Adds support links
+4. Places at end of presentation (can be configured)
+
+## Example Configuration
+
+```yaml
+extensions:
+  support-this:
+    platforms:
+      github: username
+      patreon: username
+```
+
+## More Content
+
+This is just a demo slide.
+
+Navigate to the last slide to see the support section!
+

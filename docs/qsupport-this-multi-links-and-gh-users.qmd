@@ -4,10 +4,11 @@ format: html
 extensions:
   support-this:
     heading: "Support My Work"
-    github: [coatless, yourusername]
-    custom: 
-      - "https://paypal.me/yourusername"
-      - "https://yourwebsite.com/donate"
+    platforms:
+      github: [coatless, yourusername]
+      custom: 
+        - "https://paypal.me/yourusername"
+        - "https://yourwebsite.com/donate"
 filters: [support-this]
 ---
 
@@ -24,10 +25,11 @@ The configuration specified in the YAML front matter is as follows:
 extensions:
   support-this:
     heading: "Support My Work"
-    github: [coatless, yourusername]
-    custom:
-      - "https://paypal.me/yourusername"
-      - "https://yourwebsite.com/donate"
+    platforms:
+      github: [coatless, yourusername]
+      custom:
+        - "https://paypal.me/yourusername"
+        - "https://yourwebsite.com/donate"
 ``` 
 
 You may use either a single string or a list of strings for the `github` and `custom`
