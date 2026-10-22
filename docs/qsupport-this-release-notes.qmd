@@ -18,86 +18,18 @@ format:
 
 - `support-this` provides support buttons for various funding platforms directly into your documents. 
   - You can configure multiple platforms and custom links through the document's YAML front matter or a `FUNDING.yml` file.
-- `heading: false` leaves out the support section's heading.
+- `heading: false` leaves out the section's heading.
+- support-this shows each platform's own icon in HTML and Typst, and its HTML section follows the page's light or dark theme.
 
 ## Bug fixes
 
-- `debug` now defaults to `false`, so renders no longer print `[support-this]`
-  messages unless you set `debug: true`.
-- `display: badge` now shows badges for platform names and accounts that
-  contain `-` or `_`, such as Ko-fi or `coatless-quarto`. Previously, shields.io
-  showed "404: badge not found" for them, and an underscore came out as a
-  space.
-- support-this now shows a distinct icon for every platform in HTML: the
-  logos of GitHub Sponsors, Patreon, Ko-fi, Buy Me a Coffee, Liberapay, Open
-  Collective and LFX Mentorship, and generic icons for Tidelift, IssueHunt,
-  Polar, thanks.dev and custom links. Previously, several platforms shared the
-  same placeholder icon.
-- support-this now follows the page's light or dark theme in HTML. Previously,
-  the section was always a light box, even on dark pages.
-- support-this now puts a space between the platform name and the account in
-  HTML links ("Patreon: coatless" instead of "Patreon:coatless").
-- support-this now renders the support section in Typst, PDF, Word and other
-  non-HTML formats as a note callout titled with `heading`. Previously, it was
-  a plain heading followed by a list.
-- support-this now leaves the platform icons out of PDF output, where LaTeX's
-  default fonts showed them as missing characters. With
-  `display: icon-username`, the platform name takes the icon's place.
-- `use_funding_yml: true` no longer adds an empty support section when
-  `FUNDING.yml` has no accounts, as in GitHub's default template.
-- `platforms` now takes precedence over `FUNDING.yml` for a platform set in
-  both. Previously, the `FUNDING.yml` accounts replaced the document's.
-- `use_funding_yml: true` now also finds `FUNDING.yml` or `.github/FUNDING.yml`
-  at the project root and at the root of the git repository. Previously, only
-  the document's folder was searched, so pages in subfolders and projects in
-  `docs/` found nothing.
-- `use_funding_yml: true` now reads `FUNDING.yml` values the same way as the
-  document's `platforms`, so a numeric account such as `ko_fi: 12345` is no
-  longer skipped.
-- `custom` links without a scheme, such as `example.com/donate`, now go to
-  `https://example.com/donate`. Previously, they were relative links that led
-  nowhere.
-- `platforms` values that contain spaces now stay one account. Previously,
-  `custom: "https://example.com/donate here"` became three links.
-- A `::: {.support-this}` div now always marks where the section goes,
-  whatever `position` says, and the section appears only there. Previously,
-  the div was only used with `position: custom`; with `top` or `bottom` the
-  section appeared twice, and with the default the div was ignored.
-- `position: custom` now warns when the document has no `::: {.support-this}`
-  div, instead of silently leaving the section out.
-- In RevealJS, a section placed with a `::: {.support-this}` div now stays on
-  the div's slide. Previously, it split that slide in two.
-- `position` and `display` now warn about an unknown value, such as `Top` or
-  `icons`, and use their defaults. Previously, an unknown `position` left the
-  section out without a message.
-- `platforms` now warns about unknown keys, such as `kofi` instead of `ko_fi`.
-  Previously, they were silently skipped.
-- `use_funding_yml: true` now warns when it finds no `FUNDING.yml`.
-- Accounts and URLs under `platforms` now keep `--`, `---`, `...` and quotes
-  as typed. Previously, Markdown's smart punctuation turned
-  `https://example.com/a--b` into a link with an en dash.
-- `heading`, `description` and accounts that contain `<`, `&` or `"` now show
-  as typed in HTML. Previously, they could break the section's markup.
-- support-this now lists links by platform name, with custom links last.
-  Previously, they were sorted by internal key, so custom links came first.
-- support-this now works alongside other extensions that have a Lua module
-  named `platforms`. Previously, it could pick up the other extension's module
-  and silently leave out the support section.
+- support-this links every account correctly: `display: badge` shows a badge for every platform and account, and `custom` links without a scheme, such as `example.com/donate`, open the site.
+- support-this shows the section as a note callout in Typst, PDF and Word.
+- `use_funding_yml: true` finds `FUNDING.yml` next to the document, at the project root, or in the repository's `.github` folder, and the document's `platforms` take precedence over it.
+- A `::: {.support-this}` div places the section exactly where you put it, including inside a RevealJS slide.
+- `debug` is off by default, so renders stay quiet.
 
 ## Documentation
 
-- The README and home page now document the `display`, `position` and `debug`
-  options and where `FUNDING.yml` is looked for, and give the default `heading`
-  as "Support This Project".
-- The README and demo page now use `description`, the option the extension
-  reads, instead of `message`. The README and home page no longer list a
-  `truncated` option, which never existed.
-- The README's multiple-accounts example is now valid YAML.
-- The docs sidebar no longer links to a FAQ page that doesn't exist.
-- The docs site has new pages for each display mode, top and custom
-  placement, and all 12 platforms. The home page has a platform reference
-  table and troubleshooting tips, and the multiformat page is also rendered to
-  Typst and Word.
-- The `FUNDING.yml` page now explains where the file is looked for and how it
-  combines with `platforms`.
-- The docs examples use real accounts instead of placeholder handles.
+- The docs site has a page for each display mode, for top and custom placement, and for all 12 platforms, and the home page adds a platform reference table and troubleshooting tips.
+- The README and home page document every option, with examples that match the extension.
