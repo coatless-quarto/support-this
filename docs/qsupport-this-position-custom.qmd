@@ -4,7 +4,7 @@ format: html
 extensions:
   support-this:
     position: custom
-    description: "Thank you for considering supporting this work!"
+    description: "Your support keeps this work going."
     platforms:
       github: coatless
       patreon: coatless
@@ -20,7 +20,7 @@ To put the support section exactly where you want it, add an empty div with the 
 extensions:
   support-this:
     position: custom
-    description: "Thank you for considering supporting this work!"
+    description: "Your support keeps this work going."
     platforms:
       github: coatless
       patreon: coatless

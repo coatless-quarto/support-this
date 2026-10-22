@@ -4,7 +4,7 @@ format: html
 extensions:
   support-this:
     display: icon-platform-username
-    description: "Thank you for considering supporting this work!"
+    description: "Your support keeps this work going."
     platforms:
       github: coatless
       patreon: coatless
@@ -20,8 +20,8 @@ filters: [support-this]
 ```yaml
 extensions:
   support-this:
-    display: icon-platform-username  # the default, so this line is optional
-    description: "Thank you for considering supporting this work!"
+    display: icon-platform-username  # the default
+    description: "Your support keeps this work going."
     platforms:
       github: coatless
       patreon: coatless
