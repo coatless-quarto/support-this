@@ -1,5 +1,5 @@
 -- Lua module for Quarto "support-this" extension
-local platforms_module = require("platforms")
+local platforms_module = require("support-this-platforms")
 
 -- Global configuration with default values
 local debug_enabled = false
