@@ -109,8 +109,9 @@ local function get_config(meta)
           debug_log(string.format("  #value = %d", #value))
         end
         
-        -- Check if value is a table/array
-        if type(value) == "table" and #value > 0 then
+        -- Check if value is a YAML list. A single string is a table too
+        -- (its inlines), so a plain #value test would split it at spaces
+        if pandoc.utils.type(value) == "List" then
           -- It's an array - iterate through items
           debug_log(string.format("Found array for %s with %d items", norm_key, #value))
           
