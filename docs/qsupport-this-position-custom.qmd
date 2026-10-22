@@ -1,0 +1,47 @@
+---
+title: "Custom Placement"
+format: html
+extensions:
+  support-this:
+    position: custom
+    description: "Thank you for considering supporting this work!"
+    platforms:
+      github: coatless
+      patreon: coatless
+      ko_fi: coatless
+filters: [support-this]
+---
+
+To put the support section exactly where you want it, add an empty div with the `support-this` class at that spot.
+
+## Configuration
+
+```yaml
+extensions:
+  support-this:
+    position: custom
+    description: "Thank you for considering supporting this work!"
+    platforms:
+      github: coatless
+      patreon: coatless
+      ko_fi: coatless
+filters: [support-this]
+```
+
+Then, in the body of the document:
+
+```markdown
+::: {.support-this}
+:::
+```
+
+The section below replaces that div:
+
+::: {.support-this}
+:::
+
+## How the div and `position` work together
+
+- The div always wins. Even with `position: top` or the default `position: bottom`, the section goes where the div is, so one page can override a `position` set for a whole project.
+- `position: custom` tells support-this to add the section only where you put a div. If a page has none, it gets no section and the render shows a warning.
+- In RevealJS, the section stays on the slide that holds the div.
