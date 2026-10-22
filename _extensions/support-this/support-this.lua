@@ -416,10 +416,6 @@ local function generate_support_section(entries)
   end
 end
 
--- The support section, built in the Pandoc pass and reused by the Div pass
----@type pandoc.Blocks?
-local support_section = nil
-
 -- Meta filter: read the configuration and add the CSS dependency for HTML pages
 ---@param meta pandoc.Meta
 ---@return pandoc.Meta
@@ -439,7 +435,9 @@ local function read_meta(meta)
   return meta
 end
 
--- Pandoc filter: build the section and insert it at the top or bottom
+-- Pandoc filter: build the section and put it in place. A ::: {.support-this}
+-- div marks where the author wants it, whatever position says; without one,
+-- position puts it at the top or bottom
 ---@param doc pandoc.Pandoc
 ---@return pandoc.Pandoc
 local function place_section(doc)
@@ -449,36 +447,35 @@ local function place_section(doc)
     return doc
   end
 
-  support_section = generate_support_section(entries)
+  local section = generate_support_section(entries)
 
-  if config.position == "top" then
+  -- Blocks:walk returns Blocks; the type stubs inherit List:walk's return type
+  local placeholders = 0
+  doc.blocks = doc.blocks:walk({
+    Div = function(div)
+      if div.classes:includes("support-this") then
+        placeholders = placeholders + 1
+        return section
+      end
+    end
+  }) --[[@as pandoc.Blocks]]
+
+  if placeholders > 0 then
+    debug_log(string.format("Replaced %d .support-this div(s) with the support section", placeholders))
+  elseif config.position == "top" then
     debug_log("Inserting support section at top")
-    doc.blocks = support_section .. doc.blocks
+    doc.blocks = section .. doc.blocks
   elseif config.position == "bottom" then
     debug_log("Inserting support section at bottom")
-    doc.blocks:extend(support_section)
+    doc.blocks:extend(section)
   else
-    debug_log("Support section will be placed at custom location")
+    debug_log("position: custom and no .support-this div, so the section is left out")
   end
 
   return doc
 end
 
--- Div filter: replace a .support-this placeholder with the section. Only
--- position: custom uses the placeholder; top and bottom have already
--- placed the section
----@param div pandoc.Div
----@return pandoc.Blocks?
-local function fill_placeholder(div)
-  if config.position == "custom" and support_section and div.classes:includes("support-this") then
-    debug_log("Replacing .support-this div with support section")
-    return support_section
-  end
-  return nil
-end
-
 return {
   {Meta = read_meta},
-  {Pandoc = place_section},
-  {Div = fill_placeholder}
+  {Pandoc = place_section}
 }
