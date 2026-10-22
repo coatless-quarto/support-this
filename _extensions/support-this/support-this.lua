@@ -9,7 +9,7 @@ local platforms = require("support-this-platforms")
 ---@field heading string? Heading of the support section; nil when turned off
 ---@field description string? Message shown above the links
 ---@field position SupportThisPosition Where the section goes
----@field display SupportThisDisplay How each link is shown; unknown values render like the default
+---@field display SupportThisDisplay How each link is shown
 ---@field use_funding_yml boolean Also read accounts from FUNDING.yml
 ---@field accounts table<string, string[]> Accounts per platform key
 
@@ -221,7 +221,16 @@ local function read_config(meta)
   end
 
   if options.display then
-    config.display = pandoc.utils.stringify(options.display) --[[@as SupportThisDisplay]]
+    local display = pandoc.utils.stringify(options.display)
+    if display ~= "icon-platform-username" and display ~= "icon-username"
+      and display ~= "text" and display ~= "badge" then
+      quarto.log.warning(string.format(
+        '[support-this] Unknown display "%s"; use icon-platform-username, icon-username, text or badge. Using icon-platform-username.',
+        display
+      ))
+      display = "icon-platform-username"
+    end
+    config.display = display --[[@as SupportThisDisplay]]
   end
 
   if options.use_funding_yml ~= nil then
