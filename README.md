@@ -36,7 +36,7 @@ format:
 extensions:
   support-this:
     heading: "Support This Project"  # Optional custom title
-    message: "Your support helps keep this project alive!"  # Optional message
+    description: "Your support helps keep this project alive!"  # Optional message
     use_funding_yml: false  # Set to true to use GitHub FUNDING.yml if available
     platforms:
       github: username
@@ -75,7 +75,7 @@ You can specify multiple accounts for any platform:
 extensions:
   support-this:
     platforms:
-     github: [user1, user2, user3]
+      github: [user1, user2, user3]
       custom: 
         - "https://paypal.me/username"
         - "https://venmo.com/username"
@@ -87,12 +87,28 @@ Each account will be displayed as a separate link.
 
 The `support-this` extension supports the following configuration options:
 
-- `heading`: Custom title for the support section (default: "Support This Work")
-- `message`: Custom message to display above the links
-- `truncated`: If true, shows only icons without text labels (default: false)
+- `heading`: Custom title for the support section (default: "Support This Project")
+- `description`: Custom message to display above the links
+- `display`: How each link is shown (default: `icon-platform-username`)
+  - `icon-platform-username`: platform icon, platform name, and username
+  - `icon-username`: platform icon and username
+  - `text`: platform name only
+  - `badge`: a [shields.io](https://shields.io) badge (HTML pages only; RevealJS and other formats use the default)
+
+  PDF output leaves out the icons, which LaTeX's default fonts can't display.
+- `position`: Where the support section goes (default: `bottom`)
+  - `bottom`: at the end of the document (in RevealJS, a final slide)
+  - `top`: at the start of the document
+  - `custom`: in place of a `::: {.support-this}` div that you add to the document
 - `use_funding_yml`: If true, attempts to read GitHub's FUNDING.yml for funding links (default: false)
+- `debug`: If true, prints what the extension is doing while rendering (default: false)
 
 ## Funding.yml Support
 
-If `use_funding_yml` is set to true, the extension will attempt to read the `FUNDING.yml` file
-from the root of your Quarto project to populate funding links automatically.
+If `use_funding_yml` is set to true, the extension will attempt to read a `FUNDING.yml` file
+to populate funding links automatically. It looks for `FUNDING.yml` or `.github/FUNDING.yml`
+next to the document first, then at the root of your Quarto project, then at the root of
+the git repository.
+
+Platforms listed under `platforms` take precedence: `FUNDING.yml` adds the platforms that
+the document doesn't set, and a platform set in both places uses the document's accounts.
