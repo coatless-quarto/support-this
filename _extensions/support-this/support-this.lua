@@ -206,6 +206,13 @@ local function generate_links_content()
   return items
 end
 
+-- Percent-encode a string for use as a URL query value
+local function url_encode(str)
+  return (str:gsub("[^%w%-%._~]", function(char)
+    return string.format("%%%02X", string.byte(char))
+  end))
+end
+
 -- Generate support section for HTML format
 local function generate_html_support()
   local html = '<div class="support-this-section">\n'
@@ -243,11 +250,13 @@ local function generate_html_support()
           html = html .. '  <li class="support-this-item">\n'
           
           if display == "badge" then
-            -- Badge mode: shields.io badge
+            -- Badge mode: shields.io static badge. The query form takes the
+            -- label and message verbatim, unlike /badge/ paths, where "-"
+            -- and "_" are separators
             local badge_url = string.format(
-              "https://img.shields.io/badge/%s-%s-%s?logo=%s",
-              platform.name:gsub(" ", "%%20"),
-              username:gsub(" ", "%%20"),
+              "https://img.shields.io/static/v1?label=%s&amp;message=%s&amp;color=%s&amp;logo=%s",
+              url_encode(platform.name),
+              url_encode(username),
               platform.badge_color,
               platform.badge_logo
             )
