@@ -412,13 +412,14 @@ end
 ---@type pandoc.Blocks?
 local support_section = nil
 
--- Meta filter: read the configuration and add the CSS dependency for HTML
+-- Meta filter: read the configuration and add the CSS dependency for HTML pages
 ---@param meta pandoc.Meta
 ---@return pandoc.Meta
 local function read_meta(meta)
   read_config(meta)
 
-  if quarto.doc.is_format("html:js") then
+  -- RevealJS gets plain headings and lists, which the stylesheet doesn't style
+  if quarto.doc.is_format("html:js") and not quarto.doc.is_format("revealjs") then
     debug_log("Adding HTML CSS dependency")
     quarto.doc.add_html_dependency({
       name = "support-this",
