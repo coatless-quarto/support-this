@@ -308,12 +308,14 @@ local function generate_html_support(entries)
       -- label and message verbatim, unlike /badge/ paths, where "-" and
       -- "_" are separators
       local badge_url = string.format(
-        "https://img.shields.io/static/v1?label=%s&amp;message=%s&amp;color=%s&amp;logo=%s",
+        "https://img.shields.io/static/v1?label=%s&amp;message=%s&amp;color=%s",
         url_encode(platform.name),
         url_encode(account),
-        platform.badge_color,
-        platform.badge_logo
+        platform.badge_color
       )
+      if platform.badge_logo then
+        badge_url = badge_url .. "&amp;logo=" .. platform.badge_logo
+      end
       html = html .. '    <a href="' .. url .. '" target="_blank" rel="noopener">\n'
       html = html .. '      <img src="' .. badge_url .. '" alt="' .. platform.name .. ': ' .. account .. '">\n'
       html = html .. '    </a>\n'
