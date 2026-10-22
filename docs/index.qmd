@@ -102,7 +102,7 @@ Each account will be displayed as a separate link.
 
 The `support-this` extension supports the following configuration options:
 
-- `heading`: Custom title for the support section (default: "Support This Project")
+- `heading`: Custom title for the support section (default: "Support This Project"). Set `heading: false` to leave it out; formats other than HTML then show the links without the callout box.
 - `description`: Custom message to display above the links
 - `display`: How each link is shown (default: `icon-platform-username`)
   - `icon-platform-username`: platform icon, platform name, and username
