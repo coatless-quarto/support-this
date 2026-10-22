@@ -32,6 +32,6 @@ filters: [support-this]
 
 ## Other formats
 
-In RevealJS, Typst, Word, and PDF, each link starts with a symbol for the platform instead of its logo. PDF output leaves out the symbols, which LaTeX's default fonts can't display.
+Typst shows the same icons. In RevealJS and Word, each link starts with a symbol for the platform instead. PDF output leaves the icons out, since LaTeX's default fonts can't display them.
 
 The other display modes are [Icon & Username](qsupport-this-display-icon-username.qmd), [Text](qsupport-this-display-text.qmd), and [Badges](qsupport-this-display-badge.qmd).
