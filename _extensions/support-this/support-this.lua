@@ -86,6 +86,9 @@ end
 local function read_funding_yml()
   local file, path = open_funding_yml()
   if not file then
+    quarto.log.warning(
+      "[support-this] use_funding_yml is true, but no FUNDING.yml or .github/FUNDING.yml was found next to the document, at the project root, or at the git repository root."
+    )
     return nil
   end
   local content = file:read("a") or ""

@@ -133,5 +133,5 @@ the document doesn't set, and a platform set in both places uses the document's 
 If the support section doesn't appear:
 
 - Check that the document lists the filter with `filters: [support-this]`.
-- Check the render output for `[support-this]` warnings. They point out unknown platform keys (such as `kofi` instead of `ko_fi`), unknown `display` or `position` values, and `position: custom` without a `::: {.support-this}` div.
+- Check the render output for `[support-this]` warnings. They point out unknown platform keys (such as `kofi` instead of `ko_fi`), unknown `display` or `position` values, `position: custom` without a `::: {.support-this}` div, and `use_funding_yml: true` without a `FUNDING.yml` to read.
 - Set `debug: true` to see which platforms and accounts the extension found, and which `FUNDING.yml` file it read.
