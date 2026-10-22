@@ -6,7 +6,7 @@ local platforms = require("support-this-platforms")
 
 ---@class SupportThisConfig
 ---@field debug boolean Log what the filter does
----@field heading string Heading of the support section
+---@field heading string? Heading of the support section; nil when turned off
 ---@field description string? Message shown above the links
 ---@field position SupportThisPosition Where the section goes
 ---@field display SupportThisDisplay How each link is shown; unknown values render like the default
@@ -162,10 +162,17 @@ local function read_config(meta)
     debug_log("Debug mode enabled")
   end
 
-  -- Update heading (title is accepted as another name) and description
-  local heading = options.heading or options.title
-  if heading then
-    config.heading = pandoc.utils.stringify(heading)
+  -- Update heading (title is accepted as another name) and description.
+  -- heading: false, or an empty heading, leaves the heading out
+  local heading = options.heading
+  if heading == nil then
+    heading = options.title
+  end
+  if heading == false then
+    config.heading = nil
+  elseif heading ~= nil then
+    local text = pandoc.utils.stringify(heading)
+    config.heading = text ~= "" and text or nil
   end
   if options.description then
     config.description = pandoc.utils.stringify(options.description)
@@ -297,7 +304,9 @@ end
 ---@return pandoc.Blocks
 local function generate_html_support(entries)
   local html = '<div class="support-this-section">\n'
-  html = html .. '<h3 class="support-this-heading">' .. html_escape(config.heading) .. '</h3>\n'
+  if config.heading then
+    html = html .. '<h3 class="support-this-heading">' .. html_escape(config.heading) .. '</h3>\n'
+  end
 
   if config.description then
     html = html .. '<p class="support-this-description">' .. html_escape(config.description) .. '</p>\n'
@@ -369,6 +378,12 @@ local function generate_callout_support(entries)
   end
   content:insert(pandoc.BulletList(generate_links_content(entries)))
 
+  -- Quarto titles an untitled callout "Note" in Typst and shows an empty
+  -- title in Word, so without a heading the description and links stand alone
+  if not config.heading then
+    return content
+  end
+
   -- Build the callout with Quarto's API: a raw .callout-note div added at
   -- this point is never turned into a callout. quarto.Callout returns two
   -- values, so keep only the first
@@ -393,7 +408,9 @@ local function generate_revealjs_support(entries, own_slide)
   if own_slide then
     blocks:insert(pandoc.Header(2, {}))
   end
-  blocks:insert(pandoc.Header(3, {pandoc.Str(config.heading)}))
+  if config.heading then
+    blocks:insert(pandoc.Header(3, {pandoc.Str(config.heading)}))
+  end
 
   if config.description then
     blocks:insert(pandoc.Para({pandoc.Str(config.description)}))
