@@ -155,6 +155,23 @@ local function get_config(meta)
   end
 end
 
+-- Whether any configured platform has an account to link to. Keys can be
+-- present without one, as in GitHub's FUNDING.yml template, where every
+-- key is left empty with only a comment
+local function has_accounts()
+  for platform_key, usernames in pairs(accounts) do
+    if platforms_module[platform_key] and type(usernames) == "table" then
+      for idx = 1, #usernames do
+        local username = usernames[idx]
+        if type(username) == "string" and username ~= "" then
+          return true
+        end
+      end
+    end
+  end
+  return false
+end
+
 -- Generate support links content (used across formats)
 local function generate_links_content()
   local items = {}
@@ -363,7 +380,7 @@ end
 
 -- Generate support section based on format
 local function generate_support_section()
-  if not accounts or not next(accounts) then
+  if not has_accounts() then
     return nil
   end
   
@@ -402,7 +419,7 @@ end
 
 -- Main Pandoc filter function
 function Pandoc(doc)
-  if not accounts or not next(accounts) then
+  if not has_accounts() then
     debug_log("No accounts configured, skipping support section")
     return doc
   end
