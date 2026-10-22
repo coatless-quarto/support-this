@@ -1,3 +1,12 @@
+---@class SupportThisPlatform
+---@field name string Platform name shown in links and badges
+---@field icon_html string Inline SVG icon for HTML output
+---@field icon_unicode string Symbol shown before links in other formats
+---@field badge_color string shields.io badge color
+---@field badge_logo string shields.io logo name
+---@field url_prefix string Prepended to an account to build its link (custom accounts are full URLs)
+
+---@type table<string, SupportThisPlatform>
 local platforms = {
   github = {
     name = "GitHub Sponsors",
@@ -5,9 +14,7 @@ local platforms = {
     icon_unicode = "★",
     badge_color = "555",
     badge_logo = "github",
-    url = function(username) 
-      return "https://github.com/sponsors/" .. username 
-    end
+    url_prefix = "https://github.com/sponsors/"
   },
   patreon = {
     name = "Patreon",
@@ -15,9 +22,7 @@ local platforms = {
     icon_unicode = "⚫",
     badge_color = "FF424D",
     badge_logo = "patreon",
-    url = function(username) 
-      return "https://www.patreon.com/" .. username 
-    end
+    url_prefix = "https://www.patreon.com/"
   },
   ko_fi = {
     name = "Ko-fi",
@@ -25,9 +30,7 @@ local platforms = {
     icon_unicode = "☕",
     badge_color = "FF5E5B",
     badge_logo = "kofi",
-    url = function(username) 
-      return "https://ko-fi.com/" .. username 
-    end
+    url_prefix = "https://ko-fi.com/"
   },
   buy_me_a_coffee = {
     name = "Buy Me a Coffee",
@@ -35,9 +38,7 @@ local platforms = {
     icon_unicode = "☕",
     badge_color = "FFDD00",
     badge_logo = "buymeacoffee",
-    url = function(username) 
-      return "https://buymeacoffee.com/" .. username 
-    end
+    url_prefix = "https://buymeacoffee.com/"
   },
   liberapay = {
     name = "Liberapay",
@@ -45,9 +46,7 @@ local platforms = {
     icon_unicode = "💰",
     badge_color = "F6C915",
     badge_logo = "liberapay",
-    url = function(username) 
-      return "https://liberapay.com/" .. username 
-    end
+    url_prefix = "https://liberapay.com/"
   },
   open_collective = {
     name = "Open Collective",
@@ -55,9 +54,7 @@ local platforms = {
     icon_unicode = "○",
     badge_color = "7FADF2",
     badge_logo = "opencollective",
-    url = function(username) 
-      return "https://opencollective.com/" .. username 
-    end
+    url_prefix = "https://opencollective.com/"
   },
   tidelift = {
     name = "Tidelift",
@@ -65,9 +62,7 @@ local platforms = {
     icon_unicode = "◆",
     badge_color = "F6914D",
     badge_logo = "tidelift",
-    url = function(package_name) 
-      return "https://tidelift.com/funding/github/" .. package_name 
-    end
+    url_prefix = "https://tidelift.com/funding/github/"
   },
   issuehunt = {
     name = "IssueHunt",
@@ -75,9 +70,7 @@ local platforms = {
     icon_unicode = "🎯",
     badge_color = "2EBC4F",
     badge_logo = "issuehunt",
-    url = function(username) 
-      return "https://issuehunt.io/r/" .. username 
-    end
+    url_prefix = "https://issuehunt.io/r/"
   },
   community_bridge = {
     name = "LFX Mentorship",
@@ -85,9 +78,7 @@ local platforms = {
     icon_unicode = "🌉",
     badge_color = "0095D5",
     badge_logo = "linux",
-    url = function(project) 
-      return "https://mentorship.lfx.linuxfoundation.org/project/" .. project 
-    end
+    url_prefix = "https://mentorship.lfx.linuxfoundation.org/project/"
   },
   polar = {
     name = "Polar",
@@ -95,9 +86,7 @@ local platforms = {
     icon_unicode = "❄️",
     badge_color = "3A98FF",
     badge_logo = "polar",
-    url = function(username) 
-      return "https://polar.sh/" .. username 
-    end
+    url_prefix = "https://polar.sh/"
   },
   thanks_dev = {
     name = "thanks.dev",
@@ -105,9 +94,7 @@ local platforms = {
     icon_unicode = "❤️",
     badge_color = "000000",
     badge_logo = "thanksdev",
-    url = function(username) 
-      return "https://thanks.dev/" .. username 
-    end
+    url_prefix = "https://thanks.dev/"
   },
   custom = {
     name = "Support",
@@ -115,14 +102,7 @@ local platforms = {
     icon_unicode = "🔗",
     badge_color = "0969DA",
     badge_logo = "link",
-    url = function(url)
-      -- Bare domains such as example.com/donate would be relative links;
-      -- treat them as https, as GitHub does for FUNDING.yml
-      if not url:match("^%a[%w+.-]*:") then
-        return "https://" .. url
-      end
-      return url
-    end
+    url_prefix = ""
   }
 }
 
