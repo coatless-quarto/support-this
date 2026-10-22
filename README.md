@@ -96,12 +96,23 @@ The `support-this` extension supports the following configuration options:
   - `badge`: a [shields.io](https://shields.io) badge (HTML pages only; RevealJS and other formats use the default)
 
   PDF output leaves out the icons, which LaTeX's default fonts can't display.
-- `position`: Where the support section goes (default: `bottom`)
+- `position`: Where the support section goes when the document has no `::: {.support-this}` div (default: `bottom`)
   - `bottom`: at the end of the document (in RevealJS, a final slide)
   - `top`: at the start of the document
-  - `custom`: in place of a `::: {.support-this}` div that you add to the document
+  - `custom`: only where you add a `::: {.support-this}` div
 - `use_funding_yml`: If true, attempts to read GitHub's FUNDING.yml for funding links (default: false)
 - `debug`: If true, prints what the extension is doing while rendering (default: false)
+
+## Custom Placement
+
+To put the support section somewhere specific, add an empty div with the `support-this` class where it should go:
+
+```markdown
+::: {.support-this}
+:::
+```
+
+The section replaces the div whatever `position` says, so a single page can override a `position` set for the whole project.
 
 ## Funding.yml Support
 
