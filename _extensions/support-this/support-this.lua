@@ -381,14 +381,18 @@ local function generate_callout_support(entries)
   return pandoc.Blocks({callout})
 end
 
--- Generate support section for RevealJS (non-titled slide)
+-- Generate support section for RevealJS
 ---@param entries SupportThisEntry[]
+---@param own_slide boolean Start a non-titled slide for the section
 ---@return pandoc.Blocks
-local function generate_revealjs_support(entries)
+local function generate_revealjs_support(entries, own_slide)
   local blocks = pandoc.Blocks({})
 
-  -- Create non-titled slide with level 2 header (empty)
-  blocks:insert(pandoc.Header(2, {}))
+  -- At the top or bottom, create a non-titled slide with a level 2 header
+  -- (empty). In a .support-this div, the section stays on the div's slide
+  if own_slide then
+    blocks:insert(pandoc.Header(2, {}))
+  end
   blocks:insert(pandoc.Header(3, {pandoc.Str(config.heading)}))
 
   if config.description then
@@ -401,12 +405,13 @@ end
 
 -- Generate support section based on format
 ---@param entries SupportThisEntry[]
+---@param in_place boolean The section replaces a .support-this div
 ---@return pandoc.Blocks
-local function generate_support_section(entries)
+local function generate_support_section(entries, in_place)
   -- Check RevealJS BEFORE html:js (RevealJS is HTML-based)
   if quarto.doc.is_format("revealjs") then
     debug_log("Detected RevealJS format")
-    return generate_revealjs_support(entries)
+    return generate_revealjs_support(entries, not in_place)
   elseif quarto.doc.is_format("html:js") then
     debug_log("Detected HTML format")
     return generate_html_support(entries)
@@ -447,15 +452,15 @@ local function place_section(doc)
     return doc
   end
 
-  local section = generate_support_section(entries)
-
   -- Blocks:walk returns Blocks; the type stubs inherit List:walk's return type
   local placeholders = 0
+  local in_place = nil
   doc.blocks = doc.blocks:walk({
     Div = function(div)
       if div.classes:includes("support-this") then
         placeholders = placeholders + 1
-        return section
+        in_place = in_place or generate_support_section(entries, true)
+        return in_place
       end
     end
   }) --[[@as pandoc.Blocks]]
@@ -464,10 +469,10 @@ local function place_section(doc)
     debug_log(string.format("Replaced %d .support-this div(s) with the support section", placeholders))
   elseif config.position == "top" then
     debug_log("Inserting support section at top")
-    doc.blocks = section .. doc.blocks
+    doc.blocks = generate_support_section(entries, false) .. doc.blocks
   elseif config.position == "bottom" then
     debug_log("Inserting support section at bottom")
-    doc.blocks:extend(section)
+    doc.blocks:extend(generate_support_section(entries, false))
   else
     quarto.log.warning(
       "[support-this] position is custom, but the document has no ::: {.support-this} div, so the support section is left out."
