@@ -127,7 +127,7 @@ To put the support section somewhere specific, add an empty div with the `suppor
 :::
 ```
 
-The section replaces the div whatever `position` says, so a single page can override a `position` set for the whole project.
+The section replaces the div whatever `position` says, so a single page can override a `position` set for the whole project. In RevealJS, the section stays on the slide that holds the div; at the top or bottom, it gets a slide of its own.
 
 ## Funding.yml Support
 
