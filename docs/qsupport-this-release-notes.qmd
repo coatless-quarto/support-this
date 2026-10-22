@@ -10,8 +10,62 @@ format:
 
 # 0.0.0-dev.1: ???? (??-??-????)
 
+## Breaking changes
+
+- support-this now requires Quarto 1.10 or later.
+
 ## Features
 
 - `support-this` provides support buttons for various funding platforms directly into your documents. 
   - You can configure multiple platforms and custom links through the document's YAML front matter or a `FUNDING.yml` file.
 
+## Bug fixes
+
+- `debug` now defaults to `false`, so renders no longer print `[support-this]`
+  messages unless you set `debug: true`.
+- `display: badge` now shows badges for platform names and accounts that
+  contain `-` or `_`, such as Ko-fi or `coatless-quarto`. Previously, shields.io
+  showed "404: badge not found" for them, and an underscore came out as a
+  space.
+- support-this now renders the support section in Typst, PDF, Word and other
+  non-HTML formats as a note callout titled with `heading`. Previously, it was
+  a plain heading followed by a list.
+- support-this now leaves the platform icons out of PDF output, where LaTeX's
+  default fonts showed them as missing characters. With
+  `display: icon-username`, the platform name takes the icon's place.
+- `use_funding_yml: true` no longer adds an empty support section when
+  `FUNDING.yml` has no accounts, as in GitHub's default template.
+- `platforms` now takes precedence over `FUNDING.yml` for a platform set in
+  both. Previously, the `FUNDING.yml` accounts replaced the document's.
+- `use_funding_yml: true` now also finds `FUNDING.yml` or `.github/FUNDING.yml`
+  at the project root and at the root of the git repository. Previously, only
+  the document's folder was searched, so pages in subfolders and projects in
+  `docs/` found nothing.
+- `use_funding_yml: true` now reads `FUNDING.yml` values the same way as the
+  document's `platforms`, so a numeric account such as `ko_fi: 12345` is no
+  longer skipped.
+- `custom` links without a scheme, such as `example.com/donate`, now go to
+  `https://example.com/donate`. Previously, they were relative links that led
+  nowhere.
+- `platforms` values that contain spaces now stay one account. Previously,
+  `custom: "https://example.com/donate here"` became three links.
+- `position: top` and `position: bottom` now show the section once when the
+  page also has a `::: {.support-this}` placeholder, which only
+  `position: custom` fills.
+- `position` now warns about an unknown value, such as `Top`, and places the
+  section at the bottom. Previously, the section was left out without a
+  message.
+- support-this now works alongside other extensions that have a Lua module
+  named `platforms`. Previously, it could pick up the other extension's module
+  and silently leave out the support section.
+
+## Documentation
+
+- The README and home page now document the `display`, `position` and `debug`
+  options and where `FUNDING.yml` is looked for, and give the default `heading`
+  as "Support This Project".
+- The README and demo page now use `description`, the option the extension
+  reads, instead of `message`. The README and home page no longer list a
+  `truncated` option, which never existed.
+- The README's multiple-accounts example is now valid YAML.
+- The docs sidebar no longer links to a FAQ page that doesn't exist.
