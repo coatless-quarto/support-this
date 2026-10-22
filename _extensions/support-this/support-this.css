@@ -1,9 +1,13 @@
+/* Colors come from the page's Bootstrap theme, so the section follows
+   Quarto's light and dark themes. The fixed colors are fallbacks for pages
+   without Bootstrap. */
 .support-this-section {
   margin: 2em 0;
   padding: 1.5em;
-  border: 1px solid #e1e4e8;
+  border: 1px solid var(--bs-border-color, #e1e4e8);
   border-radius: 6px;
   background-color: #f6f8fa;
+  background-color: color-mix(in srgb, var(--bs-body-color, #24292e) 4%, var(--bs-body-bg, #fff));
 }
 
 .support-this-heading {
@@ -15,7 +19,7 @@
 
 .support-this-description {
   margin-bottom: 1em;
-  color: #586069;
+  color: var(--bs-secondary-color, #586069);
 }
 
 .support-this-links {
@@ -32,12 +36,12 @@
   display: inline-flex;
   align-items: center;
   text-decoration: none;
-  color: #0366d6;
+  color: var(--bs-link-color, #0366d6);
   transition: color 0.2s;
 }
 
 .support-this-link:hover {
-  color: #0056b3;
+  color: var(--bs-link-hover-color, #0056b3);
   text-decoration: underline;
 }
 
