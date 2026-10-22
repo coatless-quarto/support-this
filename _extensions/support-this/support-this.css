@@ -59,3 +59,9 @@
 .support-this-username {
   font-family: monospace;
 }
+
+/* The ": " after the platform name is a flex item of its own, and flex
+   layout drops its trailing space, so put the space back as a margin */
+.support-this-platform + .support-this-username {
+  margin-left: 0.35em;
+}
