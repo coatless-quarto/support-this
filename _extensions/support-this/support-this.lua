@@ -161,13 +161,30 @@ local function read_accounts(value)
 end
 
 -- Add the accounts of every known platform in a map of platform keys to
--- accounts. With keep_existing, platforms that are already set are skipped
+-- accounts. FUNDING.yml only fills in platforms the document doesn't set,
+-- and may hold keys for platforms this extension doesn't know; an unknown
+-- key in the document's platforms is most likely a typo, so it warns
 ---@param source table
----@param keep_existing boolean
-local function add_accounts(source, keep_existing)
+---@param from_funding_yml boolean
+local function add_accounts(source, from_funding_yml)
   for key, value in pairs(source) do
-    local platform_key = normalize_platform_key(pandoc.utils.stringify(key))
-    if platforms[platform_key] and not (keep_existing and config.accounts[platform_key]) then
+    local name = pandoc.utils.stringify(key)
+    local platform_key = normalize_platform_key(name)
+    if not platforms[platform_key] then
+      if from_funding_yml then
+        debug_log("Skipping unknown FUNDING.yml key " .. name)
+      else
+        local known = {}
+        for known_key in pairs(platforms) do
+          table.insert(known, known_key)
+        end
+        table.sort(known)
+        quarto.log.warning(string.format(
+          '[support-this] Unknown platform "%s" under platforms; use one of %s.',
+          name, table.concat(known, ", ")
+        ))
+      end
+    elseif not (from_funding_yml and config.accounts[platform_key]) then
       config.accounts[platform_key] = read_accounts(value)
       debug_log(platform_key .. ": " .. table.concat(config.accounts[platform_key], ", "))
     end
