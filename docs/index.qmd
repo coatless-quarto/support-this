@@ -82,6 +82,8 @@ The following platforms are supported under the `platforms` key. Use the corresp
 - thanks.dev: `thanks_dev: u/gh/username`
 - Custom URLs: `custom: url` or `custom: [url1, url2]`
 
+Accounts and URLs are read as Markdown, like the rest of the front matter. support-this keeps `--`, `...` and quotes in them as typed (Markdown would turn them into dashes, ellipses and curly quotes), but other Markdown still applies. If an account contains characters such as `_` or `*` around a word, wrap it in backticks inside the quotes, as in ``custom: "`https://example.com/_draft_`"``.
+
 ## Multiple Accounts
 
 You can specify multiple accounts for any platform:

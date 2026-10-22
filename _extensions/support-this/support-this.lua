@@ -113,6 +113,36 @@ local function normalize_platform_key(key)
   return normalized
 end
 
+-- Front matter is read as Markdown with smart punctuation, which turns
+-- "--" into an en dash, "---" into an em dash, "..." into an ellipsis and
+-- quotes into curly quotes. Accounts and URLs need the characters as typed
+local undo_smart_punctuation = {
+  Str = function(str)
+    str.text = str.text
+      :gsub("\u{2014}", "---"):gsub("\u{2013}", "--"):gsub("\u{2026}", "...")
+      :gsub("\u{2019}", "'"):gsub("\u{2018}", "'")
+    return str
+  end,
+  Quoted = function(quoted)
+    local mark = quoted.quotetype == "SingleQuote" and "'" or '"'
+    local inlines = pandoc.Inlines({pandoc.Str(mark)})
+    inlines:extend(quoted.content)
+    inlines:insert(pandoc.Str(mark))
+    return inlines
+  end
+}
+
+-- Get one account as plain text, as it was typed
+---@param item any
+---@return string
+local function account_text(item)
+  local kind = pandoc.utils.type(item)
+  if kind == "Inlines" or kind == "Blocks" then
+    item = item:walk(undo_smart_punctuation)
+  end
+  return pandoc.utils.stringify(item)
+end
+
 -- Read one platform's accounts. A YAML list gives one account per item. A
 -- single string is a table too (its inlines), so it is told apart by type,
 -- not length, or it would be split at spaces
@@ -122,7 +152,7 @@ local function read_accounts(value)
   local items = pandoc.utils.type(value) == "List" and value or {value}
   local accounts = {}
   for _, item in ipairs(items) do
-    local account = pandoc.utils.stringify(item)
+    local account = account_text(item)
     if account ~= "" then
       table.insert(accounts, account)
     end
