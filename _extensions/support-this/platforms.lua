@@ -115,8 +115,13 @@ local platforms = {
     icon_unicode = "🔗",
     badge_color = "0969DA",
     badge_logo = "link",
-    url = function(url) 
-      return url 
+    url = function(url)
+      -- Bare domains such as example.com/donate would be relative links;
+      -- treat them as https, as GitHub does for FUNDING.yml
+      if not url:match("^%a[%w+.-]*:") then
+        return "https://" .. url
+      end
+      return url
     end
   }
 }
