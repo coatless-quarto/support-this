@@ -300,38 +300,30 @@ end
 
 -- Generate support section using Quarto Callout (for non-HTML/RevealJS formats)
 local function generate_callout_support()
-  local blocks = {}
-  
-  -- Add heading if provided
-  if heading then
-    table.insert(blocks, pandoc.Header(3, pandoc.Str(heading)))
-  end
-  
+  local content = {}
+
   -- Add description if provided
   if description then
-    table.insert(blocks, pandoc.Para(pandoc.Str(description)))
+    table.insert(content, pandoc.Para(pandoc.Str(description)))
   end
-  
+
   -- Generate links
   local items = generate_links_content()
-  
+
   if #items > 0 then
-    -- Create callout content
-    local callout_content = {}
-    
-    -- Add bullet list
-    table.insert(callout_content, pandoc.BulletList(items))
-    
-    -- Wrap in Quarto callout div
-    local callout = pandoc.Div(
-      callout_content,
-      pandoc.Attr("", {"callout-note"})
-    )
-    
-    table.insert(blocks, callout)
+    table.insert(content, pandoc.BulletList(items))
   end
-  
-  return blocks
+
+  -- Build the callout with Quarto's API: a raw .callout-note div added at
+  -- this point is never turned into a callout. quarto.Callout returns two
+  -- values, so keep only the first
+  local callout = (quarto.Callout({
+    type = "note",
+    title = heading,
+    content = pandoc.Blocks(content)
+  }))
+
+  return {callout}
 end
 
 -- Generate support section for RevealJS (non-titled slide)
