@@ -107,6 +107,13 @@ local function get_config(meta)
   -- Update position
   if ext_config.position then
     position = pandoc.utils.stringify(ext_config.position)
+    if position ~= "top" and position ~= "bottom" and position ~= "custom" then
+      quarto.log.warning(string.format(
+        '[support-this] Unknown position "%s"; use top, bottom or custom. Placing the section at the bottom.',
+        position
+      ))
+      position = "bottom"
+    end
   end
   
   -- Update display mode
