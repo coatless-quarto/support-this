@@ -486,9 +486,10 @@ function Pandoc(doc)
   return doc
 end
 
--- Handle custom placement via div
+-- Handle custom placement via div. Only position: custom uses the
+-- placeholder; top and bottom have already placed the section
 function Div(div)
-  if div.classes:includes("support-this") and support_section then
+  if position == "custom" and div.classes:includes("support-this") and support_section then
     debug_log("Replacing .support-this div with support section")
     if type(support_section) == "table" then
       return support_section
