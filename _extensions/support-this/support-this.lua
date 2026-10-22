@@ -2,7 +2,7 @@
 local platforms_module = require("platforms")
 
 -- Global configuration with default values
-local debug_enabled = true
+local debug_enabled = false
 local heading = "Support This Project"
 local description = nil
 local position = "bottom"
