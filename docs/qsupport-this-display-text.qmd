@@ -1,0 +1,39 @@
+---
+title: "Text"
+format: html
+extensions:
+  support-this:
+    display: text
+    description: "Thank you for considering supporting this work!"
+    platforms:
+      github: coatless
+      patreon: coatless
+      ko_fi: coatless
+      buy_me_a_coffee: coatless
+filters: [support-this]
+---
+
+With `display: text`, each link is just the platform's name, with no icon or account. It suits a short list or a formal document.
+
+Because the account isn't shown, several accounts on the same platform all read the same. If you list more than one per platform, pick another display mode.
+
+## Configuration
+
+```yaml
+extensions:
+  support-this:
+    display: text
+    description: "Thank you for considering supporting this work!"
+    platforms:
+      github: coatless
+      patreon: coatless
+      ko_fi: coatless
+      buy_me_a_coffee: coatless
+filters: [support-this]
+```
+
+## Other formats
+
+RevealJS, Typst, Word, and PDF show the same links, with each platform's name in bold.
+
+The other display modes are [Icon, Platform & Username](qsupport-this-display-icon-platform-username.qmd), [Icon & Username](qsupport-this-display-icon-username.qmd), and [Badges](qsupport-this-display-badge.qmd).

@@ -1,0 +1,39 @@
+---
+title: "Badges"
+format: html
+extensions:
+  support-this:
+    display: badge
+    description: "Thank you for considering supporting this work!"
+    platforms:
+      github: coatless
+      patreon: coatless
+      ko_fi: coatless
+      buy_me_a_coffee: coatless
+filters: [support-this]
+---
+
+With `display: badge`, each link is a [shields.io](https://shields.io) badge showing the platform's logo, its name, and the account, in the platform's color. Badges match the ones many projects already show in their README.
+
+The badges are images served by shields.io, so readers need a network connection to see them.
+
+## Configuration
+
+```yaml
+extensions:
+  support-this:
+    display: badge
+    description: "Thank you for considering supporting this work!"
+    platforms:
+      github: coatless
+      patreon: coatless
+      ko_fi: coatless
+      buy_me_a_coffee: coatless
+filters: [support-this]
+```
+
+## Other formats
+
+Badges are for HTML pages. RevealJS, Typst, Word, and PDF use the default [Icon, Platform & Username](qsupport-this-display-icon-platform-username.qmd) display instead.
+
+The other display modes are [Icon, Platform & Username](qsupport-this-display-icon-platform-username.qmd), [Icon & Username](qsupport-this-display-icon-username.qmd), and [Text](qsupport-this-display-text.qmd).

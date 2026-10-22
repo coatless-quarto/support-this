@@ -17,14 +17,32 @@ website:
     contents: 
       - text: "Home"
         file: index.qmd
+      - section: "Display Modes"
+        contents:
+        - text: "Icon, Platform & Username"
+          href: qsupport-this-display-icon-platform-username.qmd
+        - text: "Icon & Username"
+          href: qsupport-this-display-icon-username.qmd
+        - text: "Text"
+          href: qsupport-this-display-text.qmd
+        - text: "Badges"
+          href: qsupport-this-display-badge.qmd
+      - section: "Placement"
+        contents:
+        - text: "Top of the Page"
+          href: qsupport-this-position-top.qmd
+        - text: "Custom Placement"
+          href: qsupport-this-position-custom.qmd
       - section: "Demos"
         contents:
-        - text: "Multiformat Support"
-          href: qsupport-this-demo.qmd
+        - text: "All Platforms"
+          href: qsupport-this-all-platforms.qmd
         - text: "Multiple Links & GitHub Users"
           href: qsupport-this-multi-links-and-gh-users.qmd
         - text: "FUNDING.yml Integration"
           href: qsupport-this-funding-yml.qmd
+        - text: "Multiformat Support"
+          href: qsupport-this-demo.qmd
         - text: "RevealJS Integration"
           href: qsupport-this-revealjs.qmd
       - section: "Support"

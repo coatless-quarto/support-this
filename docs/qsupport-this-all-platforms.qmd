@@ -1,0 +1,51 @@
+---
+title: "All Platforms"
+format: html
+extensions:
+  support-this:
+    description: "Every platform support-this knows, one link each."
+    platforms:
+      github: coatless
+      patreon: coatless
+      ko_fi: coatless
+      buy_me_a_coffee: coatless
+      liberapay: coatless
+      open_collective: coatless
+      tidelift: npm/babel
+      issuehunt: coatless
+      community_bridge: cloud-foundry
+      polar: coatless
+      thanks_dev: u/gh/coatless
+      custom: "https://www.paypal.me/coatless"
+filters: [support-this]
+---
+
+support-this knows the 12 platforms that GitHub's `FUNDING.yml` supports. This page lists one account on each, so you can see every platform's icon and link. The Tidelift and LFX Mentorship values are the examples from GitHub's documentation.
+
+## Configuration
+
+```yaml
+extensions:
+  support-this:
+    description: "Every platform support-this knows, one link each."
+    platforms:
+      github: coatless
+      patreon: coatless
+      ko_fi: coatless
+      buy_me_a_coffee: coatless
+      liberapay: coatless
+      open_collective: coatless
+      tidelift: npm/babel
+      issuehunt: coatless
+      community_bridge: cloud-foundry
+      polar: coatless
+      thanks_dev: u/gh/coatless
+      custom: "https://www.paypal.me/coatless"
+filters: [support-this]
+```
+
+The links are listed by platform name, with custom links last. The [home page](index.qmd#supported-platforms) lists each key and the value it expects.
+
+## Icons
+
+The GitHub, Patreon, Ko-fi, Buy Me a Coffee, Liberapay, Open Collective, and LFX Mentorship (Linux Foundation) logos come from [Simple Icons](https://simpleicons.org) (CC0). Simple Icons has no logo for Tidelift, IssueHunt, Polar, or thanks.dev, so those platforms, and custom links, use generic icons: a box, a target, a sparkle, a heart, and a link.

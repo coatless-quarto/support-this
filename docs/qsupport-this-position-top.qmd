@@ -1,0 +1,35 @@
+---
+title: "Top of the Page"
+format: html
+extensions:
+  support-this:
+    position: top
+    description: "Thank you for considering supporting this work!"
+    platforms:
+      github: coatless
+      patreon: coatless
+      ko_fi: coatless
+filters: [support-this]
+---
+
+With `position: top`, the support section comes first, right after the page title, so every reader sees it before the content. The default, `position: bottom`, puts it at the end of the page instead, as on most pages of this site.
+
+## Configuration
+
+```yaml
+extensions:
+  support-this:
+    position: top
+    description: "Thank you for considering supporting this work!"
+    platforms:
+      github: coatless
+      patreon: coatless
+      ko_fi: coatless
+filters: [support-this]
+```
+
+## Other formats
+
+Typst, Word, and PDF put the section at the start of the document. In RevealJS, it gets a slide of its own right after the title slide.
+
+To put the section somewhere else on the page, see [Custom Placement](qsupport-this-position-custom.qmd).

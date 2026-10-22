@@ -1,0 +1,37 @@
+---
+title: "Icon, Platform & Username"
+format: html
+extensions:
+  support-this:
+    display: icon-platform-username
+    description: "Thank you for considering supporting this work!"
+    platforms:
+      github: coatless
+      patreon: coatless
+      ko_fi: coatless
+      buy_me_a_coffee: coatless
+filters: [support-this]
+---
+
+`icon-platform-username` is the default display mode. Each link shows the platform's icon, the platform's name, and the account, so readers can see at a glance where their support goes.
+
+## Configuration
+
+```yaml
+extensions:
+  support-this:
+    display: icon-platform-username  # the default, so this line is optional
+    description: "Thank you for considering supporting this work!"
+    platforms:
+      github: coatless
+      patreon: coatless
+      ko_fi: coatless
+      buy_me_a_coffee: coatless
+filters: [support-this]
+```
+
+## Other formats
+
+In RevealJS, Typst, Word, and PDF, each link starts with a symbol for the platform instead of its logo. PDF output leaves out the symbols, which LaTeX's default fonts can't display.
+
+The other display modes are [Icon & Username](qsupport-this-display-icon-username.qmd), [Text](qsupport-this-display-text.qmd), and [Badges](qsupport-this-display-badge.qmd).
