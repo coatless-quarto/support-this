@@ -2,6 +2,8 @@
 
 A Quarto extension to add crowdfunding and sponsorship links to your Quarto documents to support your content creation.
 
+See the [documentation site](https://quarto.thecoatlessprofessor.com/support-this/) for a page on each display mode, placement, and output format.
+
 ## Installation
 
 To install the `support-this` Quarto extension, follow these steps:
@@ -65,7 +67,7 @@ The following platforms are supported. Use the corresponding key followed by you
 - Tidelift: `tidelift: platform/package` (e.g., `npm/my-package`)
 - Polar: `polar: username`
 - thanks.dev: `thanks_dev: u/gh/username`
-- Custom URLs: `custom: url` or `custom: [url1, url2]`
+- Custom URLs: `custom: url` or `custom: [url1, url2]` (a URL without a scheme, such as `example.com/donate`, links to `https://example.com/donate`)
 
 Accounts and URLs are read as Markdown, like the rest of the front matter. support-this keeps `--`, `...` and quotes in them as typed (Markdown would turn them into dashes, ellipses and curly quotes), but other Markdown still applies. If an account contains characters such as `_` or `*` around a word, wrap it in backticks inside the quotes, as in ``custom: "`https://example.com/_draft_`"``.
 
@@ -116,7 +118,7 @@ To put the support section somewhere specific, add an empty div with the `suppor
 
 The section replaces the div whatever `position` says, so a single page can override a `position` set for the whole project. In RevealJS, the section stays on the slide that holds the div; at the top or bottom, it gets a slide of its own.
 
-## Funding.yml Support
+## FUNDING.yml Support
 
 If `use_funding_yml` is set to true, the extension will attempt to read a `FUNDING.yml` file
 to populate funding links automatically. It looks for `FUNDING.yml` or `.github/FUNDING.yml`
@@ -125,3 +127,11 @@ the git repository.
 
 Platforms listed under `platforms` take precedence: `FUNDING.yml` adds the platforms that
 the document doesn't set, and a platform set in both places uses the document's accounts.
+
+## Troubleshooting
+
+If the support section doesn't appear:
+
+- Check that the document lists the filter with `filters: [support-this]`.
+- Check the render output for `[support-this]` warnings. They point out unknown platform keys (such as `kofi` instead of `ko_fi`), unknown `display` or `position` values, and `position: custom` without a `::: {.support-this}` div.
+- Set `debug: true` to see which platforms and accounts the extension found, and which `FUNDING.yml` file it read.

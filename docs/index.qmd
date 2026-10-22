@@ -67,20 +67,24 @@ where `username` should be replaced with your actual usernames on the respective
 
 ## Supported Platforms
 
-The following platforms are supported under the `platforms` key. Use the corresponding key followed by your username or URL:
+The following platforms are supported under the `platforms` key. They are the platforms GitHub's `FUNDING.yml` supports, with the same keys. See [All Platforms](qsupport-this-all-platforms.qmd) for how each one looks.
 
-- GitHub Sponsors: `github: username`
-- Patreon: `patreon: username`
-- Ko-fi: `ko_fi: username`
-- Buy Me a Coffee: `buy_me_a_coffee: username`
-- Liberapay: `liberapay: username`
-- Open Collective: `open_collective: username`
-- IssueHunt: `issuehunt: username`
-- LFX Mentorship: `community_bridge: projectname`
-- Tidelift: `tidelift: platform/package` (e.g., `npm/my-package`)
-- Polar: `polar: username`
-- thanks.dev: `thanks_dev: u/gh/username`
-- Custom URLs: `custom: url` or `custom: [url1, url2]`
+| Platform | Key | Value | Example |
+|----------|-----|-------|---------|
+| GitHub Sponsors | `github` | username | `github: coatless` |
+| Patreon | `patreon` | username | `patreon: coatless` |
+| Ko-fi | `ko_fi` | username | `ko_fi: coatless` |
+| Buy Me a Coffee | `buy_me_a_coffee` | username | `buy_me_a_coffee: coatless` |
+| Liberapay | `liberapay` | username | `liberapay: coatless` |
+| Open Collective | `open_collective` | collective name | `open_collective: coatless` |
+| Tidelift | `tidelift` | platform/package | `tidelift: npm/babel` |
+| IssueHunt | `issuehunt` | username | `issuehunt: coatless` |
+| LFX Mentorship | `community_bridge` | project name | `community_bridge: cloud-foundry` |
+| Polar | `polar` | username | `polar: coatless` |
+| thanks.dev | `thanks_dev` | u/gh/username | `thanks_dev: u/gh/coatless` |
+| Custom URLs | `custom` | URL | `custom: "https://www.paypal.me/coatless"` |
+
+Every key takes a single value or a list, such as `custom: [url1, url2]`. A custom URL without a scheme, such as `example.com/donate`, links to `https://example.com/donate`.
 
 Accounts and URLs are read as Markdown, like the rest of the front matter. support-this keeps `--`, `...` and quotes in them as typed (Markdown would turn them into dashes, ellipses and curly quotes), but other Markdown still applies. If an account contains characters such as `_` or `*` around a word, wrap it in backticks inside the quotes, as in ``custom: "`https://example.com/_draft_`"``.
 
@@ -131,7 +135,7 @@ To put the support section somewhere specific, add an empty div with the `suppor
 
 The section replaces the div whatever `position` says, so a single page can override a `position` set for the whole project. In RevealJS, the section stays on the slide that holds the div; at the top or bottom, it gets a slide of its own.
 
-## Funding.yml Support
+## FUNDING.yml Support
 
 If `use_funding_yml` is set to true, the extension will attempt to read a `FUNDING.yml` file
 to populate funding links automatically. It looks for `FUNDING.yml` or `.github/FUNDING.yml`
@@ -140,3 +144,13 @@ the git repository.
 
 Platforms listed under `platforms` take precedence: `FUNDING.yml` adds the platforms that
 the document doesn't set, and a platform set in both places uses the document's accounts.
+
+See [FUNDING.yml Integration](qsupport-this-funding-yml.qmd) for an example.
+
+## Troubleshooting
+
+If the support section doesn't appear:
+
+- Check that the document lists the filter with `filters: [support-this]`.
+- Check the render output for `[support-this]` warnings. They point out unknown platform keys (such as `kofi` instead of `ko_fi`), unknown `display` or `position` values, and `position: custom` without a `::: {.support-this}` div.
+- Set `debug: true` to see which platforms and accounts the extension found, and which `FUNDING.yml` file it read.
