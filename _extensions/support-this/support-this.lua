@@ -307,35 +307,60 @@ local function collect_entries()
   return entries
 end
 
+-- Typst draws the platforms' SVG icons, but its SVG renderer can't resolve
+-- currentColor, so they get a fixed dark gray: close to the black text of the
+-- callout, and a shade softer so the icons don't outweigh the names
+local TYPST_ICON_COLOR = "#404040"
+
+-- Quote a string for Typst source
+---@param str string
+---@return string
+local function typst_string(str)
+  return '"' .. str:gsub("\\", "\\\\"):gsub('"', '\\"') .. '"'
+end
+
+-- The platform's icon for non-HTML formats, or nil when the format gets none
+---@param platform SupportThisPlatform
+---@return pandoc.Inline?
+local function platform_icon(platform)
+  if quarto.doc.is_format("typst") then
+    local svg = platform.icon_html:gsub("currentColor", TYPST_ICON_COLOR)
+    return pandoc.RawInline("typst",
+      '#box(height: 0.9em, baseline: 12%, image(bytes(' .. typst_string(svg) .. '), format: "svg"))')
+  elseif quarto.doc.is_format("latex") then
+    -- LaTeX's default fonts have no glyphs for the icon symbols and emoji,
+    -- which come out as missing characters, so LaTeX output is text only
+    return nil
+  end
+  return pandoc.Str(platform.icon_unicode)
+end
+
 -- Generate the list items for the links (non-HTML formats and RevealJS)
 ---@param entries SupportThisEntry[]
 ---@return pandoc.List
 local function generate_links_content(entries)
-  -- LaTeX's default fonts have no glyphs for the icon symbols and emoji,
-  -- which come out as missing characters, so LaTeX output is text only
-  local show_icons = not quarto.doc.is_format("latex")
-
   local items = pandoc.List({})
   for _, entry in ipairs(entries) do
     local platform, account, url = entry.platform, entry.account, entry.url
+    local icon = platform_icon(platform)
     local content = pandoc.Inlines({})
 
     if config.display == "text" then
       -- Text mode: just platform name as link
       content:insert(pandoc.Link({pandoc.Strong({pandoc.Str(platform.name)})}, url))
 
-    elseif config.display == "icon-username" and show_icons then
+    elseif config.display == "icon-username" and icon then
       -- Icon + username mode
-      content:insert(pandoc.Str(platform.icon_unicode))
+      content:insert(icon)
       content:insert(pandoc.Space())
       content:insert(pandoc.Link({pandoc.Str(account)}, url))
 
     else
-      -- Default and badge: icon-platform-username mode. Without icons,
-      -- icon-username also lands here, so the platform name still says
-      -- where each link goes
-      if show_icons then
-        content:insert(pandoc.Str(platform.icon_unicode))
+      -- Default and badge: icon-platform-username mode. Badges are shields.io
+      -- images, which only HTML loads. Without icons (LaTeX), icon-username
+      -- also lands here, so the platform name still says where each link goes
+      if icon then
+        content:insert(icon)
         content:insert(pandoc.Space())
       end
       content:insert(pandoc.Strong({pandoc.Str(platform.name .. ":")}))

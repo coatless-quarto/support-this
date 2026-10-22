@@ -48,4 +48,4 @@ The links are listed by platform name, with custom links last. The [home page](i
 
 ## Icons
 
-The GitHub, Patreon, Ko-fi, Buy Me a Coffee, Liberapay, Open Collective, and LFX Mentorship (Linux Foundation) logos come from [Simple Icons](https://simpleicons.org) (CC0). Simple Icons has no logo for Tidelift, IssueHunt, Polar, or thanks.dev, so those platforms, and custom links, use generic icons: a box, a target, a sparkle, a heart, and a link.
+The GitHub, Patreon, Ko-fi, Buy Me a Coffee, Liberapay, Open Collective, and LFX Mentorship (Linux Foundation) logos come from [Simple Icons](https://simpleicons.org) (CC0). Simple Icons has no logo for Tidelift, IssueHunt, Polar, or thanks.dev, so those platforms, and custom links, use generic icons: a box, a target, a sparkle, a heart, and a link. Typst output uses the same icons.

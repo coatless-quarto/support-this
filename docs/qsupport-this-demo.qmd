@@ -44,6 +44,6 @@ Make sure to replace `coatless` with your actual usernames on the respective pla
 This page is also rendered to PDF, Typst, and Word; use the links under "Other Formats" to compare them.
 
 - **HTML** shows the styled section below, here with `display: badge`.
-- **PDF, Typst, and Word** show the section as a note callout titled with the `heading`. Badges are HTML only, so these formats use the default icon, platform, and username display. PDF leaves out the platform symbols, which LaTeX's default fonts can't display.
+- **PDF, Typst, and Word** show the section as a note callout titled with the `heading`. Badges are HTML only, so these formats use the default icon, platform, and username display. Typst shows the platforms' icons, Word a symbol for each, and PDF leaves them out, since LaTeX's default fonts can't display them.
 - **RevealJS** adds the section as a slide of its own; see [RevealJS Integration](qsupport-this-revealjs.qmd).
 
