@@ -136,14 +136,16 @@ local function get_config(meta)
     end
   end
   
-  -- Read from FUNDING.yml if enabled (only load tinyyaml if needed)
+  -- Read from FUNDING.yml if enabled (only load tinyyaml if needed).
+  -- FUNDING.yml is the base: a platform also set in the document's
+  -- platforms keeps the document's accounts
   if use_funding_yml == true then
     debug_log("Loading FUNDING.yml")
     local funding_data = read_funding_yml()
     if funding_data then
       for key, value in pairs(funding_data) do
         local norm_key = normalize_platform_key(key)
-        if platforms_module[norm_key] then
+        if platforms_module[norm_key] and not accounts[norm_key] then
           if type(value) == "table" then
             accounts[norm_key] = value
           else
