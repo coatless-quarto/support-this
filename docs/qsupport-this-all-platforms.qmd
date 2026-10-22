@@ -3,7 +3,7 @@ title: "All Platforms"
 format: html
 extensions:
   support-this:
-    description: "Every platform support-this knows, one link each."
+    description: "One link on every platform."
     platforms:
       github: coatless
       patreon: coatless
@@ -27,7 +27,7 @@ support-this knows the 12 platforms that GitHub's `FUNDING.yml` supports. This p
 ```yaml
 extensions:
   support-this:
-    description: "Every platform support-this knows, one link each."
+    description: "One link on every platform."
     platforms:
       github: coatless
       patreon: coatless

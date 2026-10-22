@@ -4,7 +4,7 @@ format: html
 extensions:
   support-this:
     display: text
-    description: "Thank you for considering supporting this work!"
+    description: "Your support keeps this work going."
     platforms:
       github: coatless
       patreon: coatless
@@ -23,7 +23,7 @@ Because the account isn't shown, several accounts on the same platform all read 
 extensions:
   support-this:
     display: text
-    description: "Thank you for considering supporting this work!"
+    description: "Your support keeps this work going."
     platforms:
       github: coatless
       patreon: coatless

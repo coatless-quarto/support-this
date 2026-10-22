@@ -4,7 +4,7 @@ format: html
 extensions:
   support-this:
     position: top
-    description: "Thank you for considering supporting this work!"
+    description: "Your support keeps this work going."
     platforms:
       github: coatless
       patreon: coatless
@@ -20,7 +20,7 @@ With `position: top`, the support section comes first, right after the page titl
 extensions:
   support-this:
     position: top
-    description: "Thank you for considering supporting this work!"
+    description: "Your support keeps this work going."
     platforms:
       github: coatless
       patreon: coatless
