@@ -3,6 +3,9 @@ title: "Support This Demo"
 format: 
   html: default
   pdf: default
+  typst:
+    output-file: qsupport-this-demo-typst.pdf
+  docx: default
 extensions:
   support-this:
     display: badge
@@ -38,5 +41,9 @@ Make sure to replace `coatless` with your actual usernames on the respective pla
 
 ## Supported Formats
 
-This extension supports multiple output formats including HTML, PDF, and Typst. Please see other formats like PDF and Typst to understand how the extension behaves across different output types.
+This page is also rendered to PDF, Typst, and Word; use the links under "Other Formats" to compare them.
+
+- **HTML** shows the styled section below, here with `display: badge`.
+- **PDF, Typst, and Word** show the section as a note callout titled with the `heading`. Badges are HTML only, so these formats use the default icon, platform, and username display. PDF leaves out the platform symbols, which LaTeX's default fonts can't display.
+- **RevealJS** adds the section as a slide of its own; see [RevealJS Integration](qsupport-this-revealjs.qmd).
 

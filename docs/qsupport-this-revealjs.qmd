@@ -25,7 +25,6 @@ extensions:
     heading: "Support This Project"
     description: "Consider supporting our work!"
     position: bottom
-    debug: true
     platforms:
       github: coatless
       patreon: coatless
