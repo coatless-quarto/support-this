@@ -246,15 +246,21 @@ local function read_config(meta)
   end
 end
 
--- Collect the links to show: platforms in key order, each platform's
--- accounts in the order they are listed
+-- Collect the links to show: platforms in order of their names, with
+-- custom links last, and each platform's accounts in the order they are
+-- listed. (Metadata keys have no order of their own.)
 ---@return SupportThisEntry[]
 local function collect_entries()
   local platform_keys = {}
   for platform_key in pairs(config.accounts) do
     table.insert(platform_keys, platform_key)
   end
-  table.sort(platform_keys)
+  table.sort(platform_keys, function(a, b)
+    if (a == "custom") ~= (b == "custom") then
+      return b == "custom"
+    end
+    return platforms[a].name:lower() < platforms[b].name:lower()
+  end)
 
   local entries = {}
   for _, platform_key in ipairs(platform_keys) do

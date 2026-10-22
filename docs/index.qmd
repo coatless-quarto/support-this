@@ -98,7 +98,7 @@ extensions:
         - "https://venmo.com/username"
 ```
 
-Each account will be displayed as a separate link.
+Each account will be displayed as a separate link. Links are listed by platform name, with custom links last, and a platform's accounts keep the order you list them in.
 
 ## Configuration Options
 
