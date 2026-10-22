@@ -17,13 +17,39 @@ local function debug_log(message)
   end
 end
 
--- Read FUNDING.yml file if it exists (lazy load tinyyaml)
-local function read_funding_yml()
-  local file = io.open("FUNDING.yml", "r")
-  if not file then
-    file = io.open(".github/FUNDING.yml", "r")
+-- Find the nearest directory at or above dir that holds a git repository
+local function find_repo_root(dir)
+  while true do
+    local ok, entries = pcall(pandoc.system.list_directory, dir)
+    if ok then
+      for _, entry in ipairs(entries) do
+        if entry == ".git" then
+          return dir
+        end
+      end
+    end
+    local parent = pandoc.path.directory(dir)
+    if parent == dir then
+      return nil
+    end
+    dir = parent
   end
-  
+end
+
+-- Read FUNDING.yml file if it exists (lazy load tinyyaml). Look next to the
+-- document first (Quarto renders from the document's directory), then at
+-- the project root, then at the root of the git repository, where GitHub
+-- keeps it in .github/
+local function read_funding_yml()
+  local project_dir = quarto.project.directory
+  local repo_dir = find_repo_root(project_dir or pandoc.system.get_working_directory())
+  local file = nil
+  for _, dir in ipairs({".", project_dir or ".", repo_dir or "."}) do
+    file = file
+      or io.open(pandoc.path.join({dir, "FUNDING.yml"}), "r")
+      or io.open(pandoc.path.join({dir, ".github", "FUNDING.yml"}), "r")
+  end
+
   if file then
     local content = file:read("*all")
     file:close()
