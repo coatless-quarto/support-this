@@ -159,6 +159,10 @@ end
 local function generate_links_content()
   local items = {}
   
+  -- LaTeX's default fonts have no glyphs for the icon symbols and emoji,
+  -- which come out as missing characters, so LaTeX output is text only
+  local show_icons = not quarto.doc.is_format("latex")
+  
   -- Sort platform keys for consistent ordering
   local sorted_platforms = {}
   for platform_key, _ in pairs(accounts) do
@@ -182,16 +186,20 @@ local function generate_links_content()
             -- Text mode: just platform name as link
             table.insert(content, pandoc.Link(pandoc.Strong(pandoc.Str(platform.name)), url))
             
-          elseif display == "icon-username" then
+          elseif display == "icon-username" and show_icons then
             -- Icon + username mode
             table.insert(content, pandoc.Str(platform.icon_unicode))
             table.insert(content, pandoc.Space())
             table.insert(content, pandoc.Link(pandoc.Str(username), url))
             
           else
-            -- Default and badge: icon-platform-username mode
-            table.insert(content, pandoc.Str(platform.icon_unicode))
-            table.insert(content, pandoc.Space())
+            -- Default and badge: icon-platform-username mode. Without
+            -- icons, icon-username also lands here, so the platform name
+            -- still says where each link goes
+            if show_icons then
+              table.insert(content, pandoc.Str(platform.icon_unicode))
+              table.insert(content, pandoc.Space())
+            end
             table.insert(content, pandoc.Strong(pandoc.Str(platform.name .. ":")))
             table.insert(content, pandoc.Space())
             table.insert(content, pandoc.Link(pandoc.Str(username), url))
