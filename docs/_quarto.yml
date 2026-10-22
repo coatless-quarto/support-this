@@ -29,8 +29,6 @@ website:
           href: qsupport-this-revealjs.qmd
       - section: "Support"
         contents:
-        - text: "FAQ"
-          href: qsupport-this-faq.qmd
         - text: "Submit an issue"
           href: https://github.com/coatless-quarto/support-this/issues/new/choose
       - section: "Extra"

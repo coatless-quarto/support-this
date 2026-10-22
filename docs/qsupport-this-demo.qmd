@@ -7,7 +7,7 @@ extensions:
   support-this:
     display: badge
     heading: "Support My Work"
-    message: "If you find this helpful, consider supporting me!"
+    description: "If you find this helpful, consider supporting me!"
     platforms:
       github: coatless
       patreon: coatless
@@ -24,11 +24,13 @@ We have specified the following configuration:
 ```yaml
 extensions:
   support-this:
+    display: badge
     heading: "Support My Work"
-    message: "If you find this helpful, consider supporting me!"
-    github: coatless
-    patreon: coatless
-    buy_me_a_coffee: coatless
+    description: "If you find this helpful, consider supporting me!"
+    platforms:
+      github: coatless
+      patreon: coatless
+      buy_me_a_coffee: coatless
 filters: [support-this]
 ```
 
