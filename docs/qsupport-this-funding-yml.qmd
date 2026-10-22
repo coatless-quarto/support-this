@@ -38,3 +38,24 @@ patreon: coatless
 custom: ["https://www.paypal.me/coatless", thecoatlessprofessor.com]
 ```
 
+### Where the file is found
+
+support-this uses the first of these it finds:
+
+1. `FUNDING.yml` or `.github/FUNDING.yml` next to the document, as on this page.
+2. The same at the root of the Quarto project.
+3. The same at the root of the git repository. This is where GitHub keeps the file, so a project in a `docs/` folder can reuse the repository's `.github/FUNDING.yml`.
+
+Keys without a value, as in GitHub's default template, are skipped, and keys for platforms support-this doesn't know are ignored.
+
+### Combining with `platforms`
+
+`FUNDING.yml` is the base. Platforms listed under `platforms` are added to it, and a platform set in both places uses the document's accounts. For example, with the `FUNDING.yml` above, this configuration keeps the GitHub and Patreon links but replaces the two custom links with one:
+
+```yaml
+extensions:
+  support-this:
+    use_funding_yml: true
+    platforms:
+      custom: "https://thecoatlessprofessor.com"
+```
