@@ -285,22 +285,30 @@ local function url_encode(str)
   end))
 end
 
+-- Escape text for HTML content and double-quoted attribute values
+---@param str string
+---@return string
+local function html_escape(str)
+  return (str:gsub('[&<>"]', {["&"] = "&amp;", ["<"] = "&lt;", [">"] = "&gt;", ['"'] = "&quot;"}))
+end
+
 -- Generate support section for HTML format
 ---@param entries SupportThisEntry[]
 ---@return pandoc.Blocks
 local function generate_html_support(entries)
   local html = '<div class="support-this-section">\n'
-  html = html .. '<h3 class="support-this-heading">' .. config.heading .. '</h3>\n'
+  html = html .. '<h3 class="support-this-heading">' .. html_escape(config.heading) .. '</h3>\n'
 
   if config.description then
-    html = html .. '<p class="support-this-description">' .. config.description .. '</p>\n'
+    html = html .. '<p class="support-this-description">' .. html_escape(config.description) .. '</p>\n'
   end
 
   html = html .. '<ul class="support-this-links">\n'
   debug_log(string.format("Rendering HTML with %d links", #entries))
 
   for _, entry in ipairs(entries) do
-    local platform, account, url = entry.platform, entry.account, entry.url
+    local platform = entry.platform
+    local name, account, url = html_escape(platform.name), html_escape(entry.account), html_escape(entry.url)
     html = html .. '  <li class="support-this-item">\n'
 
     if config.display == "badge" then
@@ -308,22 +316,22 @@ local function generate_html_support(entries)
       -- label and message verbatim, unlike /badge/ paths, where "-" and
       -- "_" are separators
       local badge_url = string.format(
-        "https://img.shields.io/static/v1?label=%s&amp;message=%s&amp;color=%s",
+        "https://img.shields.io/static/v1?label=%s&message=%s&color=%s",
         url_encode(platform.name),
-        url_encode(account),
+        url_encode(entry.account),
         platform.badge_color
       )
       if platform.badge_logo then
-        badge_url = badge_url .. "&amp;logo=" .. platform.badge_logo
+        badge_url = badge_url .. "&logo=" .. platform.badge_logo
       end
       html = html .. '    <a href="' .. url .. '" target="_blank" rel="noopener">\n'
-      html = html .. '      <img src="' .. badge_url .. '" alt="' .. platform.name .. ': ' .. account .. '">\n'
+      html = html .. '      <img src="' .. html_escape(badge_url) .. '" alt="' .. name .. ': ' .. account .. '">\n'
       html = html .. '    </a>\n'
 
     elseif config.display == "text" then
       -- Text mode: just platform name as link
       html = html .. '    <a href="' .. url .. '" class="support-this-link" target="_blank" rel="noopener">\n'
-      html = html .. '      <span class="support-this-platform">' .. platform.name .. '</span>\n'
+      html = html .. '      <span class="support-this-platform">' .. name .. '</span>\n'
       html = html .. '    </a>\n'
 
     elseif config.display == "icon-username" then
@@ -337,7 +345,7 @@ local function generate_html_support(entries)
       -- Default: icon-platform-username mode
       html = html .. '    <a href="' .. url .. '" class="support-this-link" target="_blank" rel="noopener">\n'
       html = html .. '      <span class="support-this-icon">' .. platform.icon_html .. '</span>\n'
-      html = html .. '      <span class="support-this-platform">' .. platform.name .. '</span>: '
+      html = html .. '      <span class="support-this-platform">' .. name .. '</span>: '
       html = html .. '      <span class="support-this-username">' .. account .. '</span>\n'
       html = html .. '    </a>\n'
     end
