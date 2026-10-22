@@ -114,7 +114,7 @@ The `support-this` extension supports the following configuration options:
 - `position`: Where the support section goes when the document has no `::: {.support-this}` div (default: `bottom`)
   - `bottom`: at the end of the document (in RevealJS, a final slide)
   - `top`: at the start of the document
-  - `custom`: only where you add a `::: {.support-this}` div
+  - `custom`: only where you add a `::: {.support-this}` div (with none, the section is left out and a warning is shown)
 - `use_funding_yml`: If true, attempts to read GitHub's FUNDING.yml for funding links (default: false)
 - `debug`: If true, prints what the extension is doing while rendering (default: false)
 
