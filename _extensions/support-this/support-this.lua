@@ -469,7 +469,9 @@ local function place_section(doc)
     debug_log("Inserting support section at bottom")
     doc.blocks:extend(section)
   else
-    debug_log("position: custom and no .support-this div, so the section is left out")
+    quarto.log.warning(
+      "[support-this] position is custom, but the document has no ::: {.support-this} div, so the support section is left out."
+    )
   end
 
   return doc
