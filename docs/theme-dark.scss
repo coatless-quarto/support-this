@@ -1,0 +1,10 @@
+/*-- scss:rules --*/
+
+// Quarto gives inline code in paragraphs, lists and tables a dark background
+// in a dark theme, but code in headings keeps the light theme's background,
+// which leaves it white on light gray. Use the same background in headings
+h1, h2, h3, h4, h5, h6 {
+  code:not(.sourceCode) {
+    background-color: $code-block-bg-color;
+  }
+}
