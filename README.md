@@ -99,7 +99,7 @@ The `support-this` extension supports the following configuration options:
   - `text`: platform name only
   - `badge`: a [shields.io](https://shields.io) badge (HTML pages only; RevealJS and other formats use the default)
 
-  Typst output shows the same icons as HTML. RevealJS and Word show a symbol for each platform, and PDF output leaves the icons out, since LaTeX's default fonts can't display them.
+  Typst and Word output show the same icons as HTML. RevealJS shows a symbol for each platform, and PDF output leaves the icons out, since LaTeX's default fonts can't display them.
 - `position`: Where the support section goes when the document has no `::: {.support-this}` div (default: `bottom`)
   - `bottom`: at the end of the document (in RevealJS, a final slide)
   - `top`: at the start of the document
