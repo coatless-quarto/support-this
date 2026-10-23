@@ -1,0 +1,76 @@
+---
+title: "Site-wide Setup"
+---
+
+Instead of configuring support-this in every page, you can set it up once for a whole website or blog, or for one folder of it. Pages then get the support section with no configuration of their own.
+
+## A whole website or blog
+
+Put the filter and the options in `_quarto.yml`. Every page of the project gets the section.
+
+```yaml
+project:
+  type: website
+
+filters:
+  - support-this
+
+extensions:
+  support-this:
+    description: "Your support keeps this work going."
+    platforms:
+      github: username
+      ko_fi: username
+```
+
+## One folder
+
+To add the section to only some pages, such as the posts of a blog, put the same keys in a `_metadata.yml` file in their folder. Pages in the folder and its subfolders get the section; the rest of the site doesn't.
+
+```yaml
+# posts/_metadata.yml
+filters:
+  - support-this
+
+extensions:
+  support-this:
+    description: "Your support keeps this work going."
+    platforms:
+      github: username
+      ko_fi: username
+```
+
+If `_quarto.yml` also sets support-this options, a folder's `_metadata.yml` adds to them: it can change the `display` for the folder, or add a platform, and keep the rest.
+
+## Live example
+
+This site's `blog/` folder has this `_metadata.yml`:
+
+```yaml
+filters:
+  - support-this
+
+extensions:
+  support-this:
+    heading: "Enjoying the Blog?"
+    description: "Set once in blog/_metadata.yml."
+    platforms:
+      github: coatless
+      patreon: username
+      ko_fi: username
+```
+
+Its two pages, [First Post](blog/first-post.qmd) and [Second Post](blog/second-post.qmd), have only a title in their front matter, and both end with the support section.
+
+## Changing one page
+
+- A page's own `extensions: support-this:` replaces the shared options instead of adding to them, so list every option that page needs, platforms included.
+- To leave the section off one page, give it an empty entry:
+
+  ```yaml
+  extensions:
+    support-this: {}
+  ```
+
+  Removing the filter doesn't work there: Quarto combines a page's `filters` with the shared ones.
+- A page that also lists `filters: [support-this]` still gets the section only once.

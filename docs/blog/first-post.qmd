@@ -1,0 +1,7 @@
+---
+title: "First Post"
+---
+
+This is one of two pages in this site's `blog/` folder. Its front matter has only a title. The support section at the bottom comes from `blog/_metadata.yml`, which every page in the folder shares.
+
+Read the [Second Post](second-post.qmd), or see [Site-wide Setup](../qsupport-this-site-wide.qmd) for how it works.
