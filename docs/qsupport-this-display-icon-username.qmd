@@ -32,6 +32,6 @@ filters: [support-this]
 
 ## Other formats
 
-Typst shows the same icons. In RevealJS and Word, the icon is a symbol for the platform. PDF output leaves the icons out, since LaTeX's default fonts can't display them, and shows the platform's name in their place.
+Typst and Word show the same icons. In RevealJS, the icon is a symbol for the platform. PDF output leaves the icons out, since LaTeX's default fonts can't display them, and shows the platform's name in their place.
 
 The other display modes are [Icon, Platform & Username](qsupport-this-display-icon-platform-username.qmd), [Text](qsupport-this-display-text.qmd), and [Badges](qsupport-this-display-badge.qmd).

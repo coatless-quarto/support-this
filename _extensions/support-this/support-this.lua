@@ -309,14 +309,39 @@ end
 
 -- Typst draws the platforms' SVG icons, but its SVG renderer can't resolve
 -- currentColor, so they get a fixed dark gray: close to the black text of the
--- callout, and a shade softer so the icons don't outweigh the names
+-- callout, and a shade softer so the icons don't outweigh the names. The PNG
+-- icons for Word are drawn in the same gray
 local TYPST_ICON_COLOR = "#404040"
+
+-- Height of the Word icons, as in Typst. Pandoc counts 1em as 11/64 inch
+local DOCX_ICON_HEIGHT = "0.9em"
 
 -- Quote a string for Typst source
 ---@param str string
 ---@return string
 local function typst_string(str)
   return '"' .. str:gsub("\\", "\\\\"):gsub('"', '\\"') .. '"'
+end
+
+-- The platform's icon for Word: a PNG shipped with the extension, since an
+-- SVG image in Word needs rsvg-convert at render time for its PNG fallback.
+-- Each PNG goes into the mediabag once, so the document doesn't refer to
+-- wherever the extension is installed. Without the file, the symbol stands in
+---@param platform SupportThisPlatform
+---@return pandoc.Inline
+local function docx_icon(platform)
+  local name = "support-this-" .. pandoc.path.filename(platform.icon_png)
+  if not pandoc.mediabag.lookup(name) then
+    local path = quarto.utils.resolve_path(platform.icon_png)
+    local file = io.open(path, "rb")
+    if not file then
+      quarto.log.warning("[support-this] Could not read " .. path .. "; using a symbol for " .. platform.name .. ".")
+      return pandoc.Str(platform.icon_unicode)
+    end
+    pandoc.mediabag.insert(name, "image/png", file:read("a"))
+    file:close()
+  end
+  return pandoc.Image({pandoc.Str(platform.name)}, name, "", pandoc.Attr("", {}, {height = DOCX_ICON_HEIGHT}))
 end
 
 -- The platform's icon for non-HTML formats, or nil when the format gets none
@@ -327,6 +352,8 @@ local function platform_icon(platform)
     local svg = platform.icon_html:gsub("currentColor", TYPST_ICON_COLOR)
     return pandoc.RawInline("typst",
       '#box(height: 0.9em, baseline: 12%, image(bytes(' .. typst_string(svg) .. '), format: "svg"))')
+  elseif quarto.doc.is_format("docx") then
+    return docx_icon(platform)
   elseif quarto.doc.is_format("latex") then
     -- LaTeX's default fonts have no glyphs for the icon symbols and emoji,
     -- which come out as missing characters, so LaTeX output is text only
