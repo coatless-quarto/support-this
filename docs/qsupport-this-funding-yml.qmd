@@ -34,8 +34,8 @@ Here is the content of the `FUNDING.yml` file used in this example:
 
 ```yaml
 github: [coatless, octocat]
-patreon: coatless
-custom: ["https://www.paypal.me/coatless", thecoatlessprofessor.com]
+patreon: username
+custom: ["https://paypal.me/username", thecoatlessprofessor.com]
 ```
 
 ### Where the file is found

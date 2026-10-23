@@ -13,8 +13,8 @@ extensions:
     description: "If you find this helpful, consider supporting me!"
     platforms:
       github: coatless
-      patreon: coatless
-      buy_me_a_coffee: coatless
+      patreon: username
+      buy_me_a_coffee: username
 filters: [support-this]
 ---
 
@@ -32,12 +32,12 @@ extensions:
     description: "If you find this helpful, consider supporting me!"
     platforms:
       github: coatless
-      patreon: coatless
-      buy_me_a_coffee: coatless
+      patreon: username
+      buy_me_a_coffee: username
 filters: [support-this]
 ```
 
-Make sure to replace `coatless` with your actual usernames on the respective platforms.
+Make sure to replace `coatless` and `username` with your actual usernames on the respective platforms.
 
 ## Supported Formats
 

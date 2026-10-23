@@ -7,8 +7,8 @@ extensions:
     description: "Your support keeps this work going."
     platforms:
       github: coatless
-      patreon: coatless
-      ko_fi: coatless
+      patreon: username
+      ko_fi: username
 filters: [support-this]
 ---
 
@@ -23,8 +23,8 @@ extensions:
     description: "Your support keeps this work going."
     platforms:
       github: coatless
-      patreon: coatless
-      ko_fi: coatless
+      patreon: username
+      ko_fi: username
 filters: [support-this]
 ```
 
