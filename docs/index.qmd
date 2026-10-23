@@ -65,6 +65,8 @@ filters: [support-this]
 
 where `username` should be replaced with your actual usernames on the respective platforms.
 
+To configure support-this once for a whole website or blog, or for one folder, see [Site-wide Setup](qsupport-this-site-wide.qmd).
+
 ## Supported Platforms
 
 The following platforms are supported under the `platforms` key. They are the platforms GitHub's `FUNDING.yml` supports, with the same keys. See [All Platforms](qsupport-this-all-platforms.qmd) for how each one looks.

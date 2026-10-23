@@ -1,0 +1,7 @@
+---
+title: "Second Post"
+---
+
+Like the [First Post](first-post.qmd), this page has no support-this configuration of its own. It gets the same section from `blog/_metadata.yml`.
+
+See [Site-wide Setup](../qsupport-this-site-wide.qmd) for how to set this up in your own website or blog.

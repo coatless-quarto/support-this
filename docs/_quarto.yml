@@ -17,6 +17,13 @@ website:
     contents: 
       - text: "Home"
         file: index.qmd
+      - section: "Site-wide Setup"
+        href: qsupport-this-site-wide.qmd
+        contents:
+        - text: "First Post"
+          href: blog/first-post.qmd
+        - text: "Second Post"
+          href: blog/second-post.qmd
       - section: "Display Modes"
         contents:
         - text: "Icon, Platform & Username"

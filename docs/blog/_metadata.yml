@@ -1,0 +1,11 @@
+filters:
+  - support-this
+
+extensions:
+  support-this:
+    heading: "Enjoying the Blog?"
+    description: "Set once in blog/_metadata.yml."
+    platforms:
+      github: coatless
+      patreon: username
+      ko_fi: username
