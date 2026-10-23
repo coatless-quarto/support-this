@@ -5,9 +5,9 @@ extensions:
   support-this:
     heading: "Support My Work"
     platforms:
-      github: [coatless, coatless-quarto]
+      github: [coatless, octocat]
       custom: 
-        - "https://www.paypal.me/coatless"
+        - "https://paypal.me/username"
         - "https://thecoatlessprofessor.com"
 filters: [support-this]
 ---
@@ -26,9 +26,9 @@ extensions:
   support-this:
     heading: "Support My Work"
     platforms:
-      github: [coatless, coatless-quarto]
+      github: [coatless, octocat]
       custom:
-        - "https://www.paypal.me/coatless"
+        - "https://paypal.me/username"
         - "https://thecoatlessprofessor.com"
 ``` 
 
@@ -36,7 +36,7 @@ You may use either a single string or a list of strings for the `github` and `cu
 fields to include multiple usernames or links.
 
 When you render this document, you should see support buttons for both GitHub Sponsors
-accounts (`coatless` and `coatless-quarto`), as well as buttons for the custom links
+accounts (`coatless` and `octocat`), as well as buttons for the custom links
 provided (PayPal and a personal website). Fields with multiple entries will
 display separate buttons for each entry.
 

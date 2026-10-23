@@ -6,17 +6,17 @@ extensions:
     description: "One link on every platform."
     platforms:
       github: coatless
-      patreon: coatless
-      ko_fi: coatless
-      buy_me_a_coffee: coatless
-      liberapay: coatless
-      open_collective: coatless
+      patreon: username
+      ko_fi: username
+      buy_me_a_coffee: username
+      liberapay: username
+      open_collective: username
       tidelift: npm/babel
-      issuehunt: coatless
+      issuehunt: username
       community_bridge: cloud-foundry
-      polar: coatless
-      thanks_dev: u/gh/coatless
-      custom: "https://www.paypal.me/coatless"
+      polar: username
+      thanks_dev: u/gh/username
+      custom: "https://paypal.me/username"
 filters: [support-this]
 ---
 
@@ -30,17 +30,17 @@ extensions:
     description: "One link on every platform."
     platforms:
       github: coatless
-      patreon: coatless
-      ko_fi: coatless
-      buy_me_a_coffee: coatless
-      liberapay: coatless
-      open_collective: coatless
+      patreon: username
+      ko_fi: username
+      buy_me_a_coffee: username
+      liberapay: username
+      open_collective: username
       tidelift: npm/babel
-      issuehunt: coatless
+      issuehunt: username
       community_bridge: cloud-foundry
-      polar: coatless
-      thanks_dev: u/gh/coatless
-      custom: "https://www.paypal.me/coatless"
+      polar: username
+      thanks_dev: u/gh/username
+      custom: "https://paypal.me/username"
 filters: [support-this]
 ```
 

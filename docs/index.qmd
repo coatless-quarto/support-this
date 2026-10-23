@@ -11,7 +11,7 @@ extensions:
     position: top
     platforms:
       github: coatless
-      patreon: coatless
+      patreon: username
 filters: [support-this]
 ---
 
@@ -72,17 +72,17 @@ The following platforms are supported under the `platforms` key. They are the pl
 | Platform | Key | Value | Example |
 |----------|-----|-------|---------|
 | GitHub Sponsors | `github` | username | `github: coatless` |
-| Patreon | `patreon` | username | `patreon: coatless` |
-| Ko-fi | `ko_fi` | username | `ko_fi: coatless` |
-| Buy Me a Coffee | `buy_me_a_coffee` | username | `buy_me_a_coffee: coatless` |
-| Liberapay | `liberapay` | username | `liberapay: coatless` |
-| Open Collective | `open_collective` | collective name | `open_collective: coatless` |
+| Patreon | `patreon` | username | `patreon: username` |
+| Ko-fi | `ko_fi` | username | `ko_fi: username` |
+| Buy Me a Coffee | `buy_me_a_coffee` | username | `buy_me_a_coffee: username` |
+| Liberapay | `liberapay` | username | `liberapay: username` |
+| Open Collective | `open_collective` | collective name | `open_collective: username` |
 | Tidelift | `tidelift` | platform/package | `tidelift: npm/babel` |
-| IssueHunt | `issuehunt` | username | `issuehunt: coatless` |
+| IssueHunt | `issuehunt` | username | `issuehunt: username` |
 | LFX Mentorship | `community_bridge` | project name | `community_bridge: cloud-foundry` |
-| Polar | `polar` | username | `polar: coatless` |
-| thanks.dev | `thanks_dev` | u/gh/username | `thanks_dev: u/gh/coatless` |
-| Custom URLs | `custom` | URL | `custom: "https://www.paypal.me/coatless"` |
+| Polar | `polar` | username | `polar: username` |
+| thanks.dev | `thanks_dev` | u/gh/username | `thanks_dev: u/gh/username` |
+| Custom URLs | `custom` | URL | `custom: "https://paypal.me/username"` |
 
 Every key takes a single value or a list, such as `custom: [url1, url2]`. A custom URL without a scheme, such as `example.com/donate`, links to `https://example.com/donate`.
 

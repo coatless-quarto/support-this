@@ -27,8 +27,8 @@ extensions:
     position: bottom
     platforms:
       github: coatless
-      patreon: coatless
-      ko_fi: coatless
+      patreon: username
+      ko_fi: username
 filters: [support-this]
 ---
 
