@@ -15,9 +15,20 @@ filters: [support-this]
 
 With `display: icon-username`, each link shows the platform's icon and the account, without the platform's name. It is more compact than the default and works well when readers know the platforms by their logos.
 
-## Configuration
+## Other formats
+
+Typst and Word show the same icons. In RevealJS, the icon is a symbol for the platform. PDF output leaves the icons out, since LaTeX's default fonts can't display them, and shows the platform's name in their place.
+
+The other display modes are [Icon, Platform & Username](qsupport-this-display-icon-platform-username.qmd), [Text](qsupport-this-display-text.qmd), and [Badges](qsupport-this-display-badge.qmd).
+
+## This page's front matter
+
+The support section below comes from this front matter:
 
 ```yaml
+---
+title: "Icon & Username"
+format: html
 extensions:
   support-this:
     display: icon-username
@@ -28,10 +39,5 @@ extensions:
       ko_fi: username
       buy_me_a_coffee: username
 filters: [support-this]
+---
 ```
-
-## Other formats
-
-Typst and Word show the same icons. In RevealJS, the icon is a symbol for the platform. PDF output leaves the icons out, since LaTeX's default fonts can't display them, and shows the platform's name in their place.
-
-The other display modes are [Icon, Platform & Username](qsupport-this-display-icon-platform-username.qmd), [Text](qsupport-this-display-text.qmd), and [Badges](qsupport-this-display-badge.qmd).

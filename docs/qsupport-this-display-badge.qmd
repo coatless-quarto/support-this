@@ -17,9 +17,20 @@ With `display: badge`, each link is a [shields.io](https://shields.io) badge sho
 
 The badges are images served by shields.io, so readers need a network connection to see them.
 
-## Configuration
+## Other formats
+
+Badges are for HTML pages. RevealJS, Typst, Word, and PDF use the default [Icon, Platform & Username](qsupport-this-display-icon-platform-username.qmd) display instead.
+
+The other display modes are [Icon, Platform & Username](qsupport-this-display-icon-platform-username.qmd), [Icon & Username](qsupport-this-display-icon-username.qmd), and [Text](qsupport-this-display-text.qmd).
+
+## This page's front matter
+
+The support section below comes from this front matter:
 
 ```yaml
+---
+title: "Badges"
+format: html
 extensions:
   support-this:
     display: badge
@@ -30,10 +41,5 @@ extensions:
       ko_fi: username
       buy_me_a_coffee: username
 filters: [support-this]
+---
 ```
-
-## Other formats
-
-Badges are for HTML pages. RevealJS, Typst, Word, and PDF use the default [Icon, Platform & Username](qsupport-this-display-icon-platform-username.qmd) display instead.
-
-The other display modes are [Icon, Platform & Username](qsupport-this-display-icon-platform-username.qmd), [Icon & Username](qsupport-this-display-icon-username.qmd), and [Text](qsupport-this-display-text.qmd).
