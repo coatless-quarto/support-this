@@ -19,7 +19,7 @@ format:
 - `support-this` provides support buttons for various funding platforms directly into your documents. 
   - You can configure multiple platforms and custom links through the document's YAML front matter or a `FUNDING.yml` file.
 - `heading: false` leaves out the section's heading.
-- support-this shows each platform's own icon in HTML and Typst, and its HTML section follows the page's light or dark theme.
+- support-this shows each platform's own icon in HTML, Typst and Word, and its HTML section follows the page's light or dark theme.
 
 ## Bug fixes
 
@@ -31,5 +31,5 @@ format:
 
 ## Documentation
 
-- The docs site has a page for each display mode, for top and custom placement, and for all 12 platforms, and the home page adds a platform reference table and troubleshooting tips.
+- The docs site has pages for each display mode, top and custom placement, site-wide setup with `_quarto.yml` or `_metadata.yml`, and all 12 platforms, plus PDF, Typst and Word downloads of the multiformat demo. The home page adds a platform reference table and troubleshooting tips.
 - The README and home page document every option, with examples that match the extension.
