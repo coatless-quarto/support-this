@@ -17,9 +17,20 @@ With `display: text`, each link is just the platform's name, with no icon or acc
 
 Because the account isn't shown, several accounts on the same platform all read the same. If you list more than one per platform, pick another display mode.
 
-## Configuration
+## Other formats
+
+RevealJS, Typst, Word, and PDF show the same links, with each platform's name in bold.
+
+The other display modes are [Icon, Platform & Username](qsupport-this-display-icon-platform-username.qmd), [Icon & Username](qsupport-this-display-icon-username.qmd), and [Badges](qsupport-this-display-badge.qmd).
+
+## This page's front matter
+
+The support section below comes from this front matter:
 
 ```yaml
+---
+title: "Text"
+format: html
 extensions:
   support-this:
     display: text
@@ -30,10 +41,5 @@ extensions:
       ko_fi: username
       buy_me_a_coffee: username
 filters: [support-this]
+---
 ```
-
-## Other formats
-
-RevealJS, Typst, Word, and PDF show the same links, with each platform's name in bold.
-
-The other display modes are [Icon, Platform & Username](qsupport-this-display-icon-platform-username.qmd), [Icon & Username](qsupport-this-display-icon-username.qmd), and [Badges](qsupport-this-display-badge.qmd).
