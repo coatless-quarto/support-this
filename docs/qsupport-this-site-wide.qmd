@@ -64,12 +64,12 @@ Its two pages, [First Post](blog/first-post.qmd) and [Second Post](blog/second-p
 
 ## Changing one page
 
-- A page's own `extensions: support-this:` replaces the shared options instead of adding to them, so list every option that page needs, platforms included.
-- To leave the section off one page, give it an empty entry:
+- A page's own `extensions: support-this:` options are combined with the shared ones. Options the page sets replace the shared values, and the rest still apply. Platforms combine the same way: the page's platforms are added to the shared ones, and a platform set in both places uses the page's account.
+- To leave the section off one page, set the entry to `false`:
 
   ```yaml
   extensions:
-    support-this: {}
+    support-this: false
   ```
 
   Removing the filter doesn't work there: Quarto combines a page's `filters` with the shared ones.
