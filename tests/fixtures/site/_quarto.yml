@@ -1,0 +1,10 @@
+project:
+  type: default
+
+filters:
+  - support-this
+
+extensions:
+  support-this:
+    platforms:
+      github: octocat

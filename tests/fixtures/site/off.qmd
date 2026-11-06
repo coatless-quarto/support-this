@@ -1,0 +1,7 @@
+---
+title: "Turns the section off"
+extensions:
+  support-this: false
+---
+
+Body text.

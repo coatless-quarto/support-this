@@ -1,0 +1,12 @@
+---
+title: "support-this without a heading"
+filters:
+  - support-this
+extensions:
+  support-this:
+    heading: false
+    platforms:
+      github: octocat
+---
+
+Body text.
