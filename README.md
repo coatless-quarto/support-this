@@ -136,6 +136,12 @@ If the support section doesn't appear:
 - Check the render output for `[support-this]` warnings. They point out unknown platform keys (such as `kofi` instead of `ko_fi`), unknown `display` or `position` values, `position: custom` without a `::: {.support-this}` div, and `use_funding_yml: true` without a `FUNDING.yml` to read.
 - Set `debug: true` to see which platforms and accounts the extension found, and which `FUNDING.yml` file it read.
 
+## Learn more
+
+- [Documentation](https://quarto.thecoatlessprofessor.com/support-this/)
+- [Release notes](https://quarto.thecoatlessprofessor.com/support-this/qsupport-this-release-notes.html)
+- [Blog posts](https://blog.thecoatlessprofessor.com/projects/support-this/)
+
 ## License
 
 support-this is licensed under AGPL-3.0-or-later with an exception: what you write and render with support-this stays yours, along with the output, under any terms you like. See [LICENSE](LICENSE) and [LICENSE-EXCEPTION.md](LICENSE-EXCEPTION.md).
