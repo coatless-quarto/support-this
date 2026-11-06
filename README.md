@@ -135,3 +135,7 @@ If the support section doesn't appear:
 - Check that the document lists the filter with `filters: [support-this]`.
 - Check the render output for `[support-this]` warnings. They point out unknown platform keys (such as `kofi` instead of `ko_fi`), unknown `display` or `position` values, `position: custom` without a `::: {.support-this}` div, and `use_funding_yml: true` without a `FUNDING.yml` to read.
 - Set `debug: true` to see which platforms and accounts the extension found, and which `FUNDING.yml` file it read.
+
+## License
+
+support-this is licensed under AGPL-3.0-or-later with an exception: what you write and render with support-this stays yours, along with the output, under any terms you like. See [LICENSE](LICENSE) and [LICENSE-EXCEPTION.md](LICENSE-EXCEPTION.md).
