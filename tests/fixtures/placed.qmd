@@ -1,0 +1,17 @@
+---
+title: "support-this placement"
+filters:
+  - support-this
+extensions:
+  support-this:
+    position: top
+    platforms:
+      github: octocat
+---
+
+Before.
+
+::: {.support-this}
+:::
+
+After.

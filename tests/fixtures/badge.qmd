@@ -1,0 +1,12 @@
+---
+title: "support-this badges"
+filters:
+  - support-this
+extensions:
+  support-this:
+    display: badge
+    platforms:
+      github: my-user_name
+---
+
+Body text.

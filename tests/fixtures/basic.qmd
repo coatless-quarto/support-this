@@ -1,0 +1,17 @@
+---
+title: "support-this basics"
+filters:
+  - support-this
+extensions:
+  support-this:
+    heading: "Help out"
+    description: "Thanks for reading."
+    platforms:
+      patreon: maker
+      github: octocat
+      custom:
+        - "https://example.com/give--now"
+        - 'https://example.com/?q="x"&y=1'
+---
+
+Body text.
